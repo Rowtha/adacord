@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,11 +16,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { CloudUpload, MessageAttachment } from "@adacord/discord-types";
 import { ChatBarButton, ChatBarButtonFactory } from "@api/ChatButtons";
 import { generateId, sendBotMessage } from "@api/Commands";
 import { Devs } from "@utils/constants";
 import definePlugin, { IconComponent, StartAt } from "@utils/types";
-import { CloudUpload, MessageAttachment } from "@vencord/discord-types";
 import { DraftStore, DraftType, UploadAttachmentStore, UserStore, useStateFromStores } from "@webpack/common";
 
 const getDraft = (channelId: string) => DraftStore.getDraft(channelId, DraftType.ChannelMessage);

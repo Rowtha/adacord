@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@ export default definePlugin({
                 match: /(?<=,channel:\i,message:\i\}\)\.then\().+?(?=\i\.content!==this\.props\.message\.content&&\i\((.+?)\)\})/,
                 replace: (match, args) => "" +
                     `async ${match}` +
-                    `if(await Vencord.Api.MessageEvents._handlePreEdit(${args}))` +
+                    `if(await Adacord.Api.MessageEvents._handlePreEdit(${args}))` +
                     "return Promise.resolve({shouldClear:false,shouldRefocus:true});"
             }
         },
@@ -40,7 +40,7 @@ export default definePlugin({
                 // https://regex101.com/r/7iswuk/1
                 match: /let (\i)=\i\.\i\.parse\((\i),.+?\.getSendMessageOptions\(\{.+?\}\)?;(?=.+?(\i)\.flags=)(?<=\)\(({.+?})\)\.then.+?)/,
                 replace: (m, parsedMessage, channel, options, props) => m +
-                    `if(await Vencord.Api.MessageEvents._handlePreSend(${channel}.id,${parsedMessage},${options},${props}))` +
+                    `if(await Adacord.Api.MessageEvents._handlePreSend(${channel}.id,${parsedMessage},${options},${props}))` +
                     "return{shouldClear:false,shouldRefocus:true};"
             }
         },
@@ -49,7 +49,7 @@ export default definePlugin({
             replacement: {
                 match: /let\{id:\i}=(\i),{id:\i}=(\i);return \i\.useCallback\((\i)=>\{/,
                 replace: (m, message, channel, event) =>
-                    `const vcMsg=${message},vcChan=${channel};${m}Vencord.Api.MessageEvents._handleClick(vcMsg,vcChan,${event});`
+                    `const vcMsg=${message},vcChan=${channel};${m}Adacord.Api.MessageEvents._handleClick(vcMsg,vcChan,${event});`
             }
         }
     ]

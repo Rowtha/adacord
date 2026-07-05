@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,8 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import type { Channel, CustomEmoji, Message } from "@adacord/discord-types";
 import { Logger } from "@utils/Logger";
-import type { Channel, CustomEmoji, Message } from "@vencord/discord-types";
 import { MessageStore } from "@webpack/common";
 import type { Promisable } from "type-fest";
 

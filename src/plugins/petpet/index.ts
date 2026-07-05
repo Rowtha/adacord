@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,11 +16,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { CommandArgument, CommandContext } from "@adacord/discord-types";
 import { ApplicationCommandInputType, ApplicationCommandOptionType, findOption, sendBotMessage } from "@api/Commands";
 import { Devs } from "@utils/constants";
 import { makeLazy } from "@utils/lazy";
 import definePlugin from "@utils/types";
-import { CommandArgument, CommandContext } from "@vencord/discord-types";
 import { DraftType, UploadAttachmentStore, UploadHandler, UploadManager, UserUtils } from "@webpack/common";
 import { GIFEncoder, nearestColorIndex, quantize } from "gifenc";
 

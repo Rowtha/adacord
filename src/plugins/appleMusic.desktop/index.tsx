@@ -1,18 +1,18 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import { Activity, ActivityAssets, ActivityButton } from "@adacord/discord-types";
+import { ActivityFlags, ActivityStatusDisplayType, ActivityType } from "@adacord/discord-types/enums";
 import { definePluginSettings } from "@api/Settings";
 import { Paragraph } from "@components/Paragraph";
 import { Devs, IS_MAC } from "@utils/constants";
 import definePlugin, { OptionType, PluginNative, ReporterTestable } from "@utils/types";
-import { Activity, ActivityAssets, ActivityButton } from "@vencord/discord-types";
-import { ActivityFlags, ActivityStatusDisplayType, ActivityType } from "@vencord/discord-types/enums";
 import { ApplicationAssetUtils, FluxDispatcher } from "@webpack/common";
 
-const Native = VencordNative.pluginHelpers.AppleMusicRichPresence as PluginNative<typeof import("./native")>;
+const Native = AdacordNative.pluginHelpers.AppleMusicRichPresence as PluginNative<typeof import("./native")>;
 
 export interface TrackData {
     name: string;

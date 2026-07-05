@@ -1,9 +1,10 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2023 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import { RenderModalProps } from "@adacord/discord-types";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Link } from "@components/Link";
 import { GUILD_ID, INVITE_KEY, RAW_SKU_ID } from "@plugins/decor/lib/constants";
@@ -12,7 +13,6 @@ import { cl, DecorationModalClasses, requireAvatarDecorationModal, requireCreate
 import { AvatarDecorationModalPreview } from "@plugins/decor/ui/components";
 import { openInviteModal } from "@utils/discord";
 import { Margins } from "@utils/margins";
-import { RenderModalProps } from "@vencord/discord-types";
 import { filters, findComponentByCodeLazy, mapMangledModuleLazy } from "@webpack";
 import { closeAllModals, FluxDispatcher, Forms, GuildStore, Modal, NavigationRouter, openModal, Text, TextInput, useEffect, useMemo, UserStore, useState } from "@webpack/common";
 

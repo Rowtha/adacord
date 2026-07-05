@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,10 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { RenderModalProps } from "@adacord/discord-types";
 import { Divider } from "@components/Divider";
 import { FormSwitch } from "@components/FormSwitch";
 import { Margins } from "@utils/margins";
-import { RenderModalProps } from "@vencord/discord-types";
 import { Forms, Modal,openModal, SearchableSelect, useMemo } from "@webpack/common";
 
 import { settings } from "./settings";

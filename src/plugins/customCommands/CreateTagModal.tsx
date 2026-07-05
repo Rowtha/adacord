@@ -1,16 +1,16 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import { RenderModalProps } from "@adacord/discord-types";
 import { InlineCode } from "@components/CodeBlock";
 import { ExpandableSection } from "@components/ExpandableCard";
 import { Flex } from "@components/Flex";
 import { HeadingSecondary } from "@components/Heading";
 import { InfoIcon } from "@components/Icons";
 import { Paragraph } from "@components/Paragraph";
-import { RenderModalProps } from "@vencord/discord-types";
 import { Modal, openModal, TextArea, TextInput, useState } from "@webpack/common";
 
 import { parseTagArguments } from ".";

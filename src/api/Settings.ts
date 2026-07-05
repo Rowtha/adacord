@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -123,13 +123,13 @@ const DefaultSettings: Settings = {
 
     cloud: {
         authenticated: false,
-        url: "https://api.vencord.dev/",
+        url: "https://github.com/Rowtha/adacord",
         settingsSync: false,
         settingsSyncVersion: 0
     }
 };
 
-const settings = !IS_REPORTER ? VencordNative.settings.get() : {} as Settings;
+const settings = !IS_REPORTER ? AdacordNative.settings.get() : {} as Settings;
 mergeDefaults(settings, DefaultSettings);
 
 export const SettingsStore = new SettingsStoreClass(settings, {
@@ -174,7 +174,7 @@ export const SettingsStore = new SettingsStoreClass(settings, {
 if (!IS_REPORTER) {
     SettingsStore.addGlobalChangeListener((_, path) => {
         SettingsStore.plain.cloud.settingsSyncVersion = Date.now();
-        VencordNative.settings.set(SettingsStore.plain, path);
+        AdacordNative.settings.set(SettingsStore.plain, path);
     });
 }
 

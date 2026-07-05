@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,6 +19,7 @@
 // This plugin is a port from Alyxia's Vendetta plugin
 import "./styles.css";
 
+import { User, UserProfile } from "@adacord/discord-types";
 import { definePluginSettings } from "@api/Settings";
 import { Divider } from "@components/Divider";
 import ErrorBoundary from "@components/ErrorBoundary";
@@ -29,7 +30,6 @@ import { Margins } from "@utils/margins";
 import { classes } from "@utils/misc";
 import { useAwaiter } from "@utils/react";
 import definePlugin, { OptionType } from "@utils/types";
-import { User, UserProfile } from "@vencord/discord-types";
 import { findComponentByCodeLazy } from "@webpack";
 import { Button, ColorPicker, Forms, React, Text, UserProfileStore, UserStore, useState } from "@webpack/common";
 import virtualMerge from "virtual-merge";

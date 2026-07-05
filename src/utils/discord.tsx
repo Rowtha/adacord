@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,8 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import type { Channel, CloudUpload, Guild, GuildFeatures, MediaModalItem, MediaModalProps, Message, User } from "@adacord/discord-types";
 import type { MessageObject } from "@api/MessageEvents";
-import type { Channel, CloudUpload, Guild, GuildFeatures, MediaModalItem, MediaModalProps, Message, User } from "@vencord/discord-types";
 import { ChannelActionCreators, ChannelStore, ComponentDispatch, Constants, FluxDispatcher, GuildStore, i18n, InviteActions, MessageActions, openMediaModal, RestAPI, SelectedChannelStore, SelectedGuildStore, Toasts, UserProfileActions, UserProfileStore, UserSettingsActionCreators, UserUtils } from "@webpack/common";
 import { Except } from "type-fest";
 

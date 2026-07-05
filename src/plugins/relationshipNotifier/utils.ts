@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { FluxStore } from "@adacord/discord-types";
+import { ChannelType, RelationshipType } from "@adacord/discord-types/enums";
 import * as DataStore from "@api/DataStore";
 import { popNotice, showNotice } from "@api/Notices";
 import { showNotification } from "@api/Notifications";
 import { getUniqueUsername, openUserProfile } from "@utils/discord";
-import { FluxStore } from "@vencord/discord-types";
-import { ChannelType, RelationshipType } from "@vencord/discord-types/enums";
 import { findStoreLazy } from "@webpack";
 import { ChannelStore, GuildMemberStore, GuildStore, RelationshipStore, UserStore, UserUtils } from "@webpack/common";
 

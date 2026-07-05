@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Command, FluxEvents } from "@adacord/discord-types";
 import { ProfileBadge } from "@api/Badges";
 import { ChatBarButtonData } from "@api/ChatButtons";
 import { NavContextMenuPatchCallback } from "@api/ContextMenu";
@@ -24,7 +25,6 @@ import { MessageAccessoryFactory } from "@api/MessageAccessories";
 import { MessageDecorationFactory } from "@api/MessageDecorations";
 import { MessageClickListener, MessageEditListener, MessageSendListener } from "@api/MessageEvents";
 import { MessagePopoverButtonData } from "@api/MessagePopover";
-import { Command, FluxEvents } from "@vencord/discord-types";
 import { ReactNode } from "react";
 import { LiteralUnion } from "type-fest";
 
@@ -188,7 +188,7 @@ export interface PluginDef {
      */
     contextMenus?: Record<string, NavContextMenuPatchCallback>;
     /**
-     * Allows you to add custom actions to the Vencord Toolbox.
+     * Allows you to add custom actions to the Adacord Toolbox.
      *
      * Can either be an object mapping labels to action functions or a Function returning Menu components.
      * Please note that you can only use Menu components.
@@ -221,7 +221,7 @@ export interface PluginDef {
 }
 
 export const enum StartAt {
-    /** Right away, as soon as Vencord initialised */
+    /** Right away, as soon as Adacord initialised */
     Init = "Init",
     /** On the DOMContentLoaded event, so once the document is ready */
     DOMContentLoaded = "DOMContentLoaded",

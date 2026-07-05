@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,6 +18,8 @@
 
 import "./styles.css";
 
+import { CloudUpload as TCloudUpload, RenderModalProps } from "@adacord/discord-types";
+import { CloudUploadPlatform } from "@adacord/discord-types/enums";
 import { NavContextMenuPatchCallback } from "@api/ContextMenu";
 import { Card } from "@components/Card";
 import { Microphone } from "@components/Icons";
@@ -29,8 +31,6 @@ import { Margins } from "@utils/margins";
 import { useAwaiter } from "@utils/react";
 import definePlugin from "@utils/types";
 import { chooseFile } from "@utils/web";
-import { CloudUpload as TCloudUpload, RenderModalProps } from "@vencord/discord-types";
-import { CloudUploadPlatform } from "@vencord/discord-types/enums";
 import { findLazy } from "@webpack";
 import { Button, Constants, FluxDispatcher, Forms, lodash, Menu, MessageActions, Modal,openModal, PendingReplyStore, PermissionsBits, PermissionStore, RestAPI, SelectedChannelStore, showToast, SnowflakeUtils, Toasts, useEffect, useState } from "@webpack/common";
 import { ComponentType } from "react";

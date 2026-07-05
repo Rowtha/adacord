@@ -1,16 +1,16 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 import "./styles.css";
 
+import { User } from "@adacord/discord-types";
 import { definePluginSettings } from "@api/Settings";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Devs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
-import { User } from "@vencord/discord-types";
 import { GuildRoleStore, SelectedGuildStore, useState } from "@webpack/common";
 
 const settings = definePluginSettings({

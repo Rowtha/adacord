@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,10 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Channel, Message } from "@adacord/discord-types";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Logger } from "@utils/Logger";
 import { IconComponent } from "@utils/types";
-import { Channel, Message } from "@vencord/discord-types";
 import type { ComponentType, MouseEventHandler } from "react";
 
 import { useSettings } from "./Settings";
@@ -64,7 +64,7 @@ export function removeMessagePopoverButton(identifier: string) {
     MessagePopoverButtonMap.delete(identifier);
 }
 
-function VencordPopoverButtons(props: { Component: React.ComponentType<MessagePopoverButtonItem>, message: Message; }) {
+function AdacordPopoverButtons(props: { Component: React.ComponentType<MessagePopoverButtonItem>, message: Message; }) {
     const { Component, message } = props;
 
     const { messagePopoverButtons } = useSettings(["uiElements.messagePopoverButtons.*"]).uiElements;
@@ -95,5 +95,5 @@ export function _buildPopoverElements(
     Component: React.ComponentType<MessagePopoverButtonItem>,
     message: Message
 ) {
-    return <VencordPopoverButtons Component={Component} message={message} />;
+    return <AdacordPopoverButtons Component={Component} message={message} />;
 }

@@ -1,13 +1,13 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2023 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import type { Channel, Emoji } from "@adacord/discord-types";
 import { definePluginSettings } from "@api/Settings";
 import { Devs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
-import type { Channel, Emoji } from "@vencord/discord-types";
 
 const settings = definePluginSettings({
     shownEmojis: {

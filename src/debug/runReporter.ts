@@ -1,5 +1,5 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -24,12 +24,12 @@ async function runReporter() {
             find: '"Could not find app-mount"',
             replacement: {
                 match: /"Could not find app-mount"/,
-                replace: "(Vencord.Webpack._initReporter(),$&)"
+                replace: "(Adacord.Webpack._initReporter(),$&)"
             }
-        }, "Vencord Reporter");
+        }, "Adacord Reporter");
 
         // @ts-expect-error
-        Vencord.Webpack._initReporter = function () {
+        Adacord.Webpack._initReporter = function () {
             // initReporter is called in the patched entry point of Discord
             // setImmediate to only start searching for lazy chunks after Discord initialized the app
             setTimeout(() => loadLazyChunks().then(loadLazyChunksResolve), 0);
@@ -93,12 +93,12 @@ async function runReporter() {
                     result = Webpack[method](...args);
                 }
 
-                if (result == null || (result.$$vencordGetWrappedComponent != null && result.$$vencordGetWrappedComponent() == null)) throw new Error("Webpack Find Fail");
+                if (result == null || (result.$$adacordGetWrappedComponent != null && result.$$adacordGetWrappedComponent() == null)) throw new Error("Webpack Find Fail");
             } catch (e) {
                 let logMessage = searchType;
                 if (method === "find" || method === "proxyLazyWebpack" || method === "LazyComponentWebpack") {
-                    if (args[0].$$vencordProps != null) {
-                        logMessage += `(${args[0].$$vencordProps.map(arg => `"${arg}"`).join(", ")})`;
+                    if (args[0].$$adacordProps != null) {
+                        logMessage += `(${args[0].$$adacordProps.map(arg => `"${arg}"`).join(", ")})`;
                     } else {
                         logMessage += `(${args[0].toString().slice(0, 147)}...)`;
                     }
@@ -122,6 +122,6 @@ async function runReporter() {
     }
 }
 
-// Run after the Vencord object has been created.
-// We need to add extra properties to it, and it is only created after all of Vencord code has ran
+// Run after the Adacord object has been created.
+// We need to add extra properties to it, and it is only created after all of Adacord code has ran
 setTimeout(runReporter, 0);

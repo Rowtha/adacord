@@ -1,15 +1,15 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import { Message } from "@adacord/discord-types";
 import { definePluginSettings } from "@api/Settings";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Devs } from "@utils/constants";
 import { isNonNullish } from "@utils/guards";
 import definePlugin, { OptionType } from "@utils/types";
-import { Message } from "@vencord/discord-types";
 import { AuthenticationStore, SnowflakeUtils, Tooltip } from "@webpack/common";
 
 type FillValue = ("status-danger" | "status-warning" | "status-positive" | "text-muted");

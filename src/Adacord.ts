@@ -1,5 +1,5 @@
 /*!
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -55,7 +55,7 @@ async function syncSettings() {
     // pre-check for local shared settings
     if (
         Settings.cloud.authenticated &&
-        !await dsGet("Vencord_cloudSecret") // this has been enabled due to local settings share or some other bug
+        !await dsGet("Adacord_cloudSecret") // this has been enabled due to local settings share or some other bug
     ) {
         // show a notification letting them know and tell them how to fix it
         showNotification({
@@ -63,7 +63,7 @@ async function syncSettings() {
             body: "We've noticed you have cloud integrations enabled in another client! Due to limitations, you will " +
                 "need to re-authenticate to continue using them. Click here to go to the settings page to do so!",
             color: "var(--yellow-360)",
-            onClick: () => SettingsRouter.openUserSettings("vencord_cloud_panel")
+            onClick: () => SettingsRouter.openUserSettings("adacord_cloud_panel")
         });
         return;
     }
@@ -125,7 +125,7 @@ async function runUpdateCheck() {
             await update();
             if (Settings.autoUpdateNotification) {
                 notify({
-                    title: "Vencord has been updated!",
+                    title: "Adacord has been updated!",
                     body: "Click here to restart",
                     onClick: relaunch
                 });
@@ -134,7 +134,7 @@ async function runUpdateCheck() {
         }
 
         notify({
-            title: "A Vencord update is available!",
+            title: "A Adacord update is available!",
             body: "Click here to view the update",
             onClick: () => openSettingsTabModal(UpdaterTab!)
         });
@@ -152,9 +152,8 @@ async function init() {
     if (!IS_WEB && !IS_UPDATER_DISABLED) {
         runUpdateCheck();
 
-        // this tends to get really annoying, so only do this if the user has auto-update without notification enabled
-        if (Settings.autoUpdate && !Settings.autoUpdateNotification) {
-            setInterval(runUpdateCheck, 1000 * 60 * 30); // 30 minutes
+        if (Settings.autoUpdate) {
+            setInterval(runUpdateCheck, 1000 * 60 * 10); // 10 minutes
         }
     }
 
@@ -165,7 +164,7 @@ async function init() {
                 "Webpack has finished initialising, but some patches haven't been applied yet.",
                 "This might be expected since some Modules are lazy loaded, but please verify",
                 "that all plugins are working as intended.",
-                "You are seeing this warning because this is a Development build of Vencord.",
+                "You are seeing this warning because this is a Development build of Adacord.",
                 "\nThe following patches have not been applied:",
                 "\n\n" + pendingPatches.map(p => `${p.plugin}: ${p.find}`).join("\n")
             );
@@ -182,6 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // FIXME
     if (IS_DISCORD_DESKTOP && Settings.winNativeTitleBar && IS_WINDOWS) {
-        createAndAppendStyle("vencord-native-titlebar-style", coreStyleRootNode).textContent = "[class*=titleBar]{display: none!important}";
+        createAndAppendStyle("adacord-native-titlebar-style", coreStyleRootNode).textContent = "[class*=titleBar]{display: none!important}";
     }
 }, { once: true });

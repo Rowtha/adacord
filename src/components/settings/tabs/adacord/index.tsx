@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,7 +27,7 @@ import { SettingsTab, wrapTab } from "@components/settings/tabs/BaseTab";
 import { openContributorModal } from "@components/settings/tabs/plugins/ContributorModal";
 import { openPluginModal } from "@components/settings/tabs/plugins/PluginModal";
 import SettingsPlugin from "@plugins/_core/settings";
-import { gitRemote } from "@shared/vencordUserAgent";
+import { gitRemote } from "@shared/adacordUserAgent";
 import { IS_WINDOWS } from "@utils/constants";
 import { Margins } from "@utils/margins";
 import { isPluginDev } from "@utils/misc";
@@ -130,7 +130,7 @@ function Switches() {
     });
 }
 
-function VencordSettings() {
+function AdacordSettings() {
     const donateImage = useMemo(() =>
         Math.random() > 0.5 ? DEFAULT_DONATE_IMAGE : SHIGGY_DONATE_IMAGE,
         []
@@ -156,7 +156,7 @@ function VencordSettings() {
                 : (
                     <SpecialCard
                         title="Support the Project"
-                        description="Please consider supporting the development of Vencord by donating!"
+                        description="Please consider supporting the development of Adacord by donating!"
                         cardImage={donateImage}
                         backgroundImage={DONOR_BACKGROUND_IMAGE}
                         backgroundColor="#c3a3ce"
@@ -170,7 +170,7 @@ function VencordSettings() {
                 <SpecialCard
                     title="Contributions"
                     subtitle="Thank you for contributing!"
-                    description="Since you've contributed to Vencord you now have a cool new badge!"
+                    description="Since you've contributed to Adacord you now have a cool new badge!"
                     cardImage={COZY_CONTRIB_IMAGE}
                     backgroundImage={CONTRIB_BACKGROUND_IMAGE}
                     backgroundColor="#EDCC87"
@@ -191,7 +191,7 @@ function VencordSettings() {
                     <QuickAction
                         Icon={PaintbrushIcon}
                         text="Edit QuickCSS"
-                        action={() => VencordNative.quickCss.openEditor()}
+                        action={() => AdacordNative.quickCss.openEditor()}
                     />
                     {!IS_WEB && (
                         <>
@@ -203,14 +203,14 @@ function VencordSettings() {
                             <QuickAction
                                 Icon={FolderIcon}
                                 text="Open Settings Folder"
-                                action={() => VencordNative.settings.openFolder()}
+                                action={() => AdacordNative.settings.openFolder()}
                             />
                         </>
                     )}
                     <QuickAction
                         Icon={GithubIcon}
                         text="View Source Code"
-                        action={() => VencordNative.native.openExternal("https://github.com/" + gitRemote)}
+                        action={() => AdacordNative.native.openExternal("https://github.com/" + gitRemote)}
                     />
                 </QuickActionCard>
             </section>
@@ -238,4 +238,4 @@ function VencordSettings() {
     );
 }
 
-export default wrapTab(VencordSettings, "Vencord Settings");
+export default wrapTab(AdacordSettings, "Adacord Settings");

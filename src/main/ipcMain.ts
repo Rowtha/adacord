@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -34,7 +34,7 @@ import { getThemeInfo, stripBOM, UserThemeHeader } from "./themes";
 import { ALLOWED_PROTOCOLS, QUICK_CSS_PATH, SETTINGS_DIR, THEMES_DIR } from "./utils/constants";
 import { makeLinksOpenExternally } from "./utils/externalLinks";
 
-const RENDERER_CSS_PATH = join(__dirname, IS_VESKTOP ? "vencordDesktopRenderer.css" : "renderer.css");
+const RENDERER_CSS_PATH = join(__dirname, IS_VESKTOP ? "adacordDesktopRenderer.css" : "renderer.css");
 
 mkdirSync(THEMES_DIR, { recursive: true });
 
@@ -145,7 +145,7 @@ ipcMain.on(IpcEvents.GET_MONACO_THEME, e => {
 });
 
 ipcMain.handle(IpcEvents.OPEN_MONACO_EDITOR, async () => {
-    const title = "Vencord QuickCSS Editor";
+    const title = "Adacord QuickCSS Editor";
     const existingWindow = BrowserWindow.getAllWindows().find(w => w.title === title);
     if (existingWindow && !existingWindow.isDestroyed()) {
         existingWindow.focus();
@@ -158,7 +158,7 @@ ipcMain.handle(IpcEvents.OPEN_MONACO_EDITOR, async () => {
         darkTheme: true,
         backgroundColor: nativeTheme.shouldUseDarkColors ? "#1e1e1e" : "white",
         webPreferences: {
-            preload: join(__dirname, IS_DISCORD_DESKTOP ? "preload.js" : "vencordDesktopPreload.js"),
+            preload: join(__dirname, IS_DISCORD_DESKTOP ? "preload.js" : "adacordDesktopPreload.js"),
             contextIsolation: true,
             nodeIntegration: false,
             sandbox: false

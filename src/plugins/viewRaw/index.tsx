@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,6 +18,7 @@
 
 import "./style.css";
 
+import { Message } from "@adacord/discord-types";
 import { findGroupChildrenByChildId, NavContextMenuPatchCallback } from "@api/ContextMenu";
 import { definePluginSettings } from "@api/Settings";
 import { CodeBlock } from "@components/CodeBlock";
@@ -28,7 +29,6 @@ import { Devs } from "@utils/constants";
 import { copyWithToast, getCurrentGuild, getIntlMessage } from "@utils/discord";
 import { isTruthy } from "@utils/guards";
 import definePlugin, { IconComponent, OptionType } from "@utils/types";
-import { Message } from "@vencord/discord-types";
 import { ChannelStore, GuildRoleStore, Menu, Modal, openModal, UserProfileStore } from "@webpack/common";
 import { MouseEventHandler } from "react";
 

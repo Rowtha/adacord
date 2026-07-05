@@ -1,15 +1,15 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 import "./style.css";
 
+import type { Message } from "@adacord/discord-types";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Devs } from "@utils/constants";
 import definePlugin from "@utils/types";
-import type { Message } from "@vencord/discord-types";
 import { findCssClassesLazy } from "@webpack";
 import { DateUtils, Timestamp } from "@webpack/common";
 import type { HTMLAttributes } from "react";

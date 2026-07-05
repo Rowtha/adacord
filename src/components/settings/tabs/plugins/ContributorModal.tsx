@@ -1,18 +1,18 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2023 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 import "./ContributorModal.css";
 
+import { RenderModalProps, User } from "@adacord/discord-types";
 import { useSettings } from "@api/Settings";
 import { Link } from "@components/Link";
 import { DevsById } from "@utils/constants";
 import { classNameFactory } from "@utils/css";
 import { fetchUserProfile } from "@utils/discord";
 import { classes, pluralise } from "@utils/misc";
-import { RenderModalProps, User } from "@vencord/discord-types";
 import { Forms, Modal,openModal, showToast, useEffect, useMemo, UserProfileStore, useStateFromStores } from "@webpack/common";
 
 import Plugins from "~plugins";
@@ -50,7 +50,7 @@ function ContributorModal({ user, modalProps }: { user: User; modalProps: Render
             .sort((a, b) => Number(a.required ?? false) - Number(b.required ?? false));
     }, [user.id, user.username]);
 
-    const ContributedHyperLink = <Link href="https://vencord.dev/source">contributed</Link>;
+    const ContributedHyperLink = <Link href="https://github.com/Rowtha/adacord">contributed</Link>;
 
     return (
         <Modal
@@ -89,7 +89,7 @@ function ContributorModal({ user, modalProps }: { user: User; modalProps: Render
                     )
                     : (
                         <Forms.FormText>
-                            This person has not made any plugins. They likely {ContributedHyperLink} to Vencord in other ways!
+                            This person has not made any plugins. They likely {ContributedHyperLink} to Adacord in other ways!
                         </Forms.FormText>
                     )
             }

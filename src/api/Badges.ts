@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,7 +27,7 @@ export const enum BadgePosition {
 
 export interface ProfileBadge {
     /**
-     * Badge id, unused by vencord, required by discord
+     * Badge id, unused by adacord, required by discord
      */
     id: string,
     /** The tooltip to show on hover. Required for image badges */

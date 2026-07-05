@@ -1,16 +1,16 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 import "./ChatButton.css";
 
+import { Channel } from "@adacord/discord-types";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Logger } from "@utils/Logger";
 import { classes } from "@utils/misc";
 import { IconComponent } from "@utils/types";
-import { Channel } from "@vencord/discord-types";
 import { findCssClassesLazy } from "@webpack";
 import { Clickable, Menu, Tooltip } from "@webpack/common";
 import { HTMLProps, JSX, MouseEventHandler, ReactNode } from "react";
@@ -95,7 +95,7 @@ export type ChatBarButtonData = {
 export const ChatBarButtonMap = new Map<string, ChatBarButtonData>();
 const logger = new Logger("ChatButtons");
 
-function VencordChatBarButtons(props: ChatBarProps) {
+function AdacordChatBarButtons(props: ChatBarProps) {
     const { chatBarButtons } = useSettings(["uiElements.chatBarButtons.*"]).uiElements;
 
     const { analyticsName } = props.type;
@@ -115,7 +115,7 @@ function VencordChatBarButtons(props: ChatBarProps) {
 export function _injectButtons(buttons: ReactNode[], props: ChatBarProps) {
     if (props.disabled || buttons.length === 0) return;
 
-    buttons.unshift(<VencordChatBarButtons key="vencord-chat-buttons" {...props} />);
+    buttons.unshift(<AdacordChatBarButtons key="adacord-chat-buttons" {...props} />);
 }
 
 /**
@@ -172,7 +172,7 @@ addContextMenuPatch("textarea-context", (children, args) => {
     if (idx === -1) return;
 
     group.splice(idx, 0,
-        <Menu.MenuItem id="vc-chat-buttons" key="vencord-chat-buttons" label="Vencord Buttons">
+        <Menu.MenuItem id="vc-chat-buttons" key="adacord-chat-buttons" label="Adacord Buttons">
             {buttons.map(([id]) => (
                 <Menu.MenuCheckboxItem
                     label={id}

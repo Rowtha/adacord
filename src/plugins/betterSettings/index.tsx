@@ -1,12 +1,12 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 import { definePluginSettings } from "@api/Settings";
 import { disableStyle, enableStyle } from "@api/Styles";
-import { buildPluginMenuEntries, buildThemeMenuEntries } from "@plugins/vencordToolbox/menu";
+import { buildPluginMenuEntries, buildThemeMenuEntries } from "@plugins/adacordToolbox/menu";
 import { Devs } from "@utils/constants";
 import { classNameFactory } from "@utils/css";
 import { Logger } from "@utils/Logger";
@@ -96,7 +96,7 @@ export default definePlugin({
             replacement: [
                 {
                     match: /class (\i)(?= extends \i\.PureComponent.+?static contextType=.+?jsx\)\(\1,\{mode:)/,
-                    replace: "var $1=$self.Layer;class VencordPatchedOldFadeLayer",
+                    replace: "var $1=$self.Layer;class AdacordPatchedOldFadeLayer",
                     predicate: () => settings.store.disableFade
                 },
                 { // Lazy-load contents
@@ -146,7 +146,7 @@ export default definePlugin({
             find: "handleOpenSettingsContextMenu=",
             replacement: {
                 match: /(?=handleOpenSettingsContextMenu=.{0,100}?null!=\i&&.{0,100}?(await [^};]*?\)\)))/,
-                replace: "_vencordBetterSettingsEagerLoad=(async ()=>$1)();"
+                replace: "_adacordBetterSettingsEagerLoad=(async ()=>$1)();"
             },
             predicate: () => settings.store.eagerLoad
         },
@@ -168,7 +168,7 @@ export default definePlugin({
     // Thus, we sanity check webpack modules
     Layer(props: LayerProps) {
         try {
-            [FocusLock.$$vencordGetWrappedComponent(), ComponentDispatch, Classes.layer].forEach(e => e.test);
+            [FocusLock.$$adacordGetWrappedComponent(), ComponentDispatch, Classes.layer].forEach(e => e.test);
         } catch {
             new Logger("BetterSettings").error("Failed to find some components");
             return props.children;
@@ -184,8 +184,8 @@ export default definePlugin({
             const { key, props } = item;
             if (!props) continue;
 
-            if (key === "vencord_plugins" || key === "vencord_themes") {
-                const children = key === "vencord_plugins"
+            if (key === "adacord_plugins" || key === "adacord_themes") {
+                const children = key === "adacord_plugins"
                     ? buildPluginMenuEntries()
                     : buildThemeMenuEntries();
 

@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Guild, GuildSticker } from "@adacord/discord-types";
+import { StickerFormatType } from "@adacord/discord-types/enums";
 import { findGroupChildrenByChildId, NavContextMenuPatchCallback } from "@api/ContextMenu";
 import { migratePluginSettings } from "@api/Settings";
 import { BaseText } from "@components/BaseText";
@@ -25,8 +27,6 @@ import { Devs } from "@utils/constants";
 import { getGuildAcronym } from "@utils/discord";
 import { Logger } from "@utils/Logger";
 import definePlugin from "@utils/types";
-import { Guild, GuildSticker } from "@vencord/discord-types";
-import { StickerFormatType } from "@vencord/discord-types/enums";
 import { findByCodeLazy } from "@webpack";
 import { Constants, EmojiStore, FluxDispatcher, Forms, GuildStore, IconUtils, Menu, Modal, openModalLazy, PermissionsBits, PermissionStore, React, RestAPI, StickersStore, Toasts, Tooltip, UserStore } from "@webpack/common";
 import { Promisable } from "type-fest";

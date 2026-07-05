@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,8 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Channel, User } from "@adacord/discord-types";
 import ErrorBoundary from "@components/ErrorBoundary";
-import { Channel, User } from "@vencord/discord-types";
 import { JSX } from "react";
 
 interface DecoratorProps {

@@ -1,5 +1,5 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2026 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -105,7 +105,7 @@ async function silentEditMessage(channelId: string, messageId: string, content: 
 
 export default definePlugin({
     name: "SilentEdit",
-    description: "\"Silently\" edit a message without showing the edit tag and bypass Vencord's message logger.",
+    description: "\"Silently\" edit a message without showing the edit tag and bypass Adacord's message logger.",
     authors: [{ name: "Aurick", id: 1348025017233047634n }],
     dependencies: ["MessagePopoverAPI"],
     settings,

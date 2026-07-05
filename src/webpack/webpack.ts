@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import type { FluxStore } from "@adacord/discord-types";
+import type { ModuleExports, ModuleFactory, WebpackRequire } from "@adacord/discord-types/webpack";
 import { traceFunction } from "@debug/Tracer";
 import { makeLazy, proxyLazy } from "@utils/lazy";
 import { LazyComponent } from "@utils/lazyReact";
 import { Logger } from "@utils/Logger";
 import { canonicalizeMatch } from "@utils/patches";
 import { escapeRegExp } from "@utils/text";
-import type { FluxStore } from "@vencord/discord-types";
-import type { ModuleExports, ModuleFactory, WebpackRequire } from "@vencord/discord-types/webpack";
 
 import type { AnyModuleFactory, AnyWebpackRequire } from "./types";
 
@@ -71,7 +71,7 @@ export const filters = {
             return stringMatches(Function.prototype.toString.call(m), parsedCode);
         };
 
-        filter.$$vencordProps = [...code];
+        filter.$$adacordProps = [...code];
         return filter;
     },
     byStoreName: (name: StoreNameFilter): FilterFn => m =>
@@ -93,7 +93,7 @@ export const filters = {
             return false;
         };
 
-        filter.$$vencordProps = [...code];
+        filter.$$adacordProps = [...code];
         return filter;
     },
 

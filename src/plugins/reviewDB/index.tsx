@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,6 +18,7 @@
 
 import "./style.css";
 
+import { Guild, User } from "@adacord/discord-types";
 import { NavContextMenuPatchCallback } from "@api/ContextMenu";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { OpenExternalIcon } from "@components/Icons";
@@ -27,7 +28,6 @@ import { Devs } from "@utils/constants";
 import { classes } from "@utils/misc";
 import { useAwaiter } from "@utils/react";
 import definePlugin from "@utils/types";
-import { Guild, User } from "@vencord/discord-types";
 import { findCssClassesLazy } from "@webpack";
 import { Clickable, ConfirmModal, IconUtils, Menu, openModal, Parser } from "@webpack/common";
 
@@ -133,7 +133,7 @@ export default definePlugin({
                         cancelText: "Appeal",
                         confirmText: "Ok",
                         onCancel: async () =>
-                            VencordNative.native.openExternal(
+                            AdacordNative.native.openExternal(
                                 "https://reviewdb.mantikafasi.dev/api/redirect?"
                                 + new URLSearchParams({
                                     token: Auth.token!,

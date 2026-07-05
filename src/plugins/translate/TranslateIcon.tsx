@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,11 +16,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { RenderModalProps } from "@adacord/discord-types";
 import { ChatBarButton, ChatBarButtonFactory } from "@api/ChatButtons";
 import { TooltipContainer } from "@components/TooltipContainer";
 import { classes } from "@utils/misc";
 import { IconComponent } from "@utils/types";
-import { RenderModalProps } from "@vencord/discord-types";
 import { ConfirmModal,openModal, useEffect, useState } from "@webpack/common";
 
 import { settings } from "./settings";
@@ -48,7 +48,7 @@ function AutoTranslateConfirmModal(props: RenderModalProps) {
     return (
         <ConfirmModal
             {...props}
-            title="Vencord Auto-Translate Enabled"
+            title="Adacord Auto-Translate Enabled"
             subtitle="You just enabled Auto Translate! Any message will automatically be translated before being sent."
             confirmText="Disable Auto-Translate"
             onConfirm={() => settings.store.autoTranslate = false}

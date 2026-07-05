@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,14 +16,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Message } from "@adacord/discord-types";
+import { MessageFlags } from "@adacord/discord-types/enums";
 import { isPluginEnabled } from "@api/PluginManager";
 import { definePluginSettings } from "@api/Settings";
 import NoBlockedMessagesPlugin from "@plugins/noBlockedMessages";
 import NoReplyMentionPlugin from "@plugins/noReplyMention";
 import { Devs, IS_MAC } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
-import { Message } from "@vencord/discord-types";
-import { MessageFlags } from "@vencord/discord-types/enums";
 import { ChannelStore, ComponentDispatch, FluxDispatcher as Dispatcher, MessageActions, MessageStore, MessageTypeSets, PermissionsBits, PermissionStore, RelationshipStore, SelectedChannelStore, UserStore } from "@webpack/common";
 
 let currentlyReplyingId: string | null = null;

@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import type * as t from "@vencord/discord-types";
+import type * as t from "@adacord/discord-types";
 import { _resolveReady, filters, findByCodeLazy, findByPropsLazy, findLazy, mapMangledModuleLazy, waitFor } from "@webpack";
 import type * as TSPattern from "ts-pattern";
 
@@ -25,7 +25,7 @@ waitFor(["dispatch", "subscribe"], m => {
     FluxDispatcher = m;
     // Importing this directly causes all webpack commons to be imported, which can easily cause circular dependencies.
     // For this reason, use a non import access here.
-    Vencord.Api.PluginManager.subscribeAllPluginsFluxEvents(m);
+    Adacord.Api.PluginManager.subscribeAllPluginsFluxEvents(m);
 
     const cb = () => {
         m.unsubscribe("CONNECTION_OPEN", cb);

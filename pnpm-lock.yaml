@@ -36,6 +36,9 @@ importers:
         specifier: ^1.0.1
         version: 1.0.2
     devDependencies:
+      '@adacord/discord-types':
+        specifier: link:packages/discord-types
+        version: link:packages/discord-types
       '@stylistic/eslint-plugin':
         specifier: ^5.10.0
         version: 5.10.0(eslint@10.6.0)
@@ -57,9 +60,6 @@ importers:
       '@types/yazl':
         specifier: ^3.3.1
         version: 3.3.1
-      '@vencord/discord-types':
-        specifier: link:packages/discord-types
-        version: link:packages/discord-types
       diff:
         specifier: ^9.0.0
         version: 9.0.0
@@ -139,20 +139,11 @@ importers:
         specifier: ^0.3.5
         version: 0.3.5
 
-  packages/discord-types:
+  packages/adacord-types:
     dependencies:
-      '@types/react':
-        specifier: 19.1.0
-        version: 19.1.0
-      moment:
-        specifier: 2.22.2
-        version: 2.22.2
-      type-fest:
-        specifier: ^5.7.0
-        version: 5.7.0
-
-  packages/vencord-types:
-    dependencies:
+      '@adacord/discord-types':
+        specifier: workspace:*
+        version: link:../discord-types
       '@types/lodash':
         specifier: 4.17.19
         version: 4.17.19
@@ -165,18 +156,15 @@ importers:
       '@types/react-dom':
         specifier: 18.3.1
         version: 18.3.1
-      '@vencord/discord-types':
-        specifier: ^1.0.1
-        version: 1.0.1(@types/react@18.3.1)
       highlight.js:
         specifier: 11.11.1
         version: 11.11.1
       moment:
         specifier: ^2.22.2
-        version: 2.30.1
+        version: 2.22.2
       ts-pattern:
         specifier: ^5.6.0
-        version: 5.6.2
+        version: 5.9.0
       type-fest:
         specifier: ^5.7.0
         version: 5.7.0
@@ -190,6 +178,18 @@ importers:
       tsx:
         specifier: ^4.22.4
         version: 4.22.4
+
+  packages/discord-types:
+    dependencies:
+      '@types/react':
+        specifier: 19.1.0
+        version: 19.1.0
+      moment:
+        specifier: 2.22.2
+        version: 2.22.2
+      type-fest:
+        specifier: ^5.7.0
+        version: 5.7.0
 
 packages:
 
@@ -658,11 +658,6 @@ packages:
 
   '@vap/shiki@0.10.5':
     resolution: {integrity: sha512-5BHVGvQT8qonbLSASon5aQFQ18OZU4FxSl9tLSj6oJ0sap3KdMbYcfGq25M9zFZR1g1dJN7fgjmZXBIS5omIdw==}
-
-  '@vencord/discord-types@1.0.1':
-    resolution: {integrity: sha512-uSQMDUTo9hMFgOMykNtTMTxScSKVVUHHFCevktO3bMyaLh1s3iDMfIvUvqU1fBkmFwvMbmEYsUrztsVKKHvang==}
-    peerDependencies:
-      '@types/react': ^19.0.10
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -2405,9 +2400,6 @@ packages:
     resolution: {integrity: sha512-zAOzDnd5qsfEnjd9IGy1IRuvA7ygyyxxdxesbhMdutt8AHFjD8Vw8hU2rMF89HX1BKRWFYqKHrO8Q6lw0NeUZg==}
     hasBin: true
 
-  ts-pattern@5.6.2:
-    resolution: {integrity: sha512-d4IxJUXROL5NCa3amvMg6VQW2HVtZYmUTPfvVtO7zJWGYLJ+mry9v2OmYm+z67aniQoQ8/yFNadiEwtNS9qQiw==}
-
   ts-pattern@5.9.0:
     resolution: {integrity: sha512-6s5V71mX8qBUmlgbrfL33xDUwO0fq48rxAu2LBE11WBeGdpCPOsXksQbZJHvHwhrd3QjUusd3mAOM5Gg0mFBLg==}
 
@@ -2425,10 +2417,6 @@ packages:
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
-
-  type-fest@4.41.0:
-    resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
-    engines: {node: '>=16'}
 
   type-fest@5.7.0:
     resolution: {integrity: sha512-1URUxUqfHFM1c+zfSPsa3gnkO7Aq21qyH75SIduNYz4SzY964rn1X2vCMQaHSHhktiw+0kPa2iyb6PUpXqB6Vg==}
@@ -3017,12 +3005,6 @@ snapshots:
       jsonc-parser: 3.3.1
       vscode-oniguruma: 1.7.0
       vscode-textmate: 5.2.0
-
-  '@vencord/discord-types@1.0.1(@types/react@18.3.1)':
-    dependencies:
-      '@types/react': 18.3.1
-      moment: 2.30.1
-      type-fest: 4.41.0
 
   acorn-jsx@5.3.2(acorn@8.16.0):
     dependencies:
@@ -5133,8 +5115,6 @@ snapshots:
       semver: 7.7.1
       strip-ansi: 6.0.1
 
-  ts-pattern@5.6.2: {}
-
   ts-pattern@5.9.0: {}
 
   tsconfig-paths@3.15.0:
@@ -5155,8 +5135,6 @@ snapshots:
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
-
-  type-fest@4.41.0: {}
 
   type-fest@5.7.0:
     dependencies:

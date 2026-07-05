@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
 /// <reference path="../src/globals.d.ts" />
 
 // Be very careful with imports in this file to avoid circular dependency issues.
-// Only import pure modules that don't import other parts of Vencord.
+// Only import pure modules that don't import other parts of Adacord.
 import monacoHtmlLocal from "file://monacoWin.html?minify";
 import * as DataStore from "@api/DataStore";
 import type { Settings } from "@api/Settings";
@@ -35,12 +35,12 @@ const cssListeners = new Set<(css: string) => void>();
 const NOOP = () => { };
 const NOOP_ASYNC = async () => { };
 
-const setCssDebounced = debounce((css: string) => VencordNative.quickCss.set(css));
+const setCssDebounced = debounce((css: string) => AdacordNative.quickCss.set(css));
 
-const themeStore = DataStore.createStore("VencordThemes", "VencordThemeData");
+const themeStore = DataStore.createStore("AdacordThemes", "AdacordThemeData");
 
 // probably should make this less cursed at some point
-window.VencordNative = {
+window.AdacordNative = {
     themes: {
         uploadTheme: (fileName: string, fileData: string) => DataStore.set(fileName, fileData, themeStore),
         deleteTheme: (fileName: string) => DataStore.del(fileName, themeStore),
@@ -71,16 +71,16 @@ window.VencordNative = {
     },
 
     updater: {
-        getRepo: async () => ({ ok: true, value: "https://github.com/Vendicated/Vencord" }),
+        getRepo: async () => ({ ok: true, value: "https://github.com/Rowtha/better-vencord" }),
         getUpdates: async () => ({ ok: true, value: [] }),
         update: async () => ({ ok: true, value: false }),
         rebuild: async () => ({ ok: true, value: true }),
     },
 
     quickCss: {
-        get: () => DataStore.get("VencordQuickCss").then(s => s ?? ""),
+        get: () => DataStore.get("AdacordQuickCss").then(s => s ?? ""),
         set: async (css: string) => {
-            await DataStore.set("VencordQuickCss", css);
+            await DataStore.set("AdacordQuickCss", css);
             cssListeners.forEach(l => l(css));
         },
         addChangeListener(cb) {
@@ -98,7 +98,7 @@ window.VencordNative = {
             }
 
             const features = `popup,width=${Math.min(window.innerWidth, 1000)},height=${Math.min(window.innerHeight, 1000)}`;
-            const win = open("about:blank", "VencordQuickCss", features);
+            const win = open("about:blank", "AdacordQuickCss", features);
             if (!win) {
                 alert("Failed to open QuickCSS popup. Make sure to allow popups!");
                 return;
@@ -106,7 +106,7 @@ window.VencordNative = {
 
             win.baseUrl = EXTENSION_BASE_URL;
             win.setCss = setCssDebounced;
-            win.getCurrentCss = () => VencordNative.quickCss.get();
+            win.getCurrentCss = () => AdacordNative.quickCss.get();
             win.getTheme = this.getEditorTheme;
 
             win.document.write(monacoHtmlLocal);
@@ -123,13 +123,13 @@ window.VencordNative = {
     settings: {
         get: () => {
             try {
-                return JSON.parse(localStorage.getItem("VencordSettings") || "{}");
+                return JSON.parse(localStorage.getItem("AdacordSettings") || "{}");
             } catch (e) {
                 console.error("Failed to parse settings from localStorage: ", e);
                 return {};
             }
         },
-        set: async (s: Settings) => localStorage.setItem("VencordSettings", JSON.stringify(s)),
+        set: async (s: Settings) => localStorage.setItem("AdacordSettings", JSON.stringify(s)),
         openFolder: async () => Promise.reject("settings:openFolder is not supported on web"),
     },
 

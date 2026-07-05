@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { ApplicationStream, Channel, Stream, User } from "@adacord/discord-types";
 import { NavContextMenuPatchCallback } from "@api/ContextMenu";
 import { ScreenshareIcon } from "@components/Icons";
 import { Devs } from "@utils/constants";
 import { openImageModal } from "@utils/discord";
 import definePlugin from "@utils/types";
-import { ApplicationStream, Channel, Stream, User } from "@vencord/discord-types";
 import { ApplicationStreamingStore, ApplicationStreamPreviewStore, Menu } from "@webpack/common";
 
 export interface UserContextProps {

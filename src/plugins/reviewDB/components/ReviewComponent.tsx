@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,7 +24,7 @@ import { canBlockReviewAuthor, canDeleteReview, canReportReview, cl, showToast }
 import { openUserProfile } from "@utils/discord";
 import { classes } from "@utils/misc";
 import { findCssClassesLazy } from "@webpack";
-import { ConfirmModal, IconUtils, openModal as openVencordModal, Parser, Timestamp, useEffect, useState } from "@webpack/common";
+import { ConfirmModal, IconUtils, openModal as openAdacordModal, Parser, Timestamp, useEffect, useState } from "@webpack/common";
 
 import { openBlockModal } from "./BlockedUserModal";
 import { BlockButton, DeleteButton, ReportButton } from "./MessageButton";
@@ -54,7 +54,7 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
     }
 
     function delReview() {
-        openVencordModal(props => (
+        openAdacordModal(props => (
             <ConfirmModal
                 {...props}
                 title="Are you sure?"
@@ -73,7 +73,7 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
     }
 
     function reportRev() {
-        openVencordModal(props => (
+        openAdacordModal(props => (
             <ConfirmModal
                 {...props}
                 title="Are you sure?"
@@ -96,7 +96,7 @@ export default function ReviewComponent({ review, refetch, profileId }: { review
         if (isAuthorBlocked)
             return unblockUser(review.sender.discordID);
 
-        openVencordModal(props => (
+        openAdacordModal(props => (
             <ConfirmModal
                 {...props}
                 title="Are you sure?"

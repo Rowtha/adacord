@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,13 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import type { Guild, GuildMember, RoleOrUserPermission } from "@adacord/discord-types";
+import { PermissionOverwriteType } from "@adacord/discord-types/enums";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { HeadingTertiary } from "@components/Heading";
 import { cl, getGuildPermissionSpecMap, getSortedRolesForMember, sortUserRoles } from "@plugins/permissionsViewer/utils";
 import { getIntlMessage } from "@utils/discord";
 import { classes } from "@utils/misc";
-import type { Guild, GuildMember, RoleOrUserPermission } from "@vencord/discord-types";
-import { PermissionOverwriteType } from "@vencord/discord-types/enums";
 import { findCssClassesLazy } from "@webpack";
 import { PermissionsBits, Text, Tooltip, useMemo, UserStore } from "@webpack/common";
 

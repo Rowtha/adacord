@@ -1,8 +1,8 @@
-# better-vencord
+# better-adacord
 
-A custom [Vencord](https://vencord.dev) fork with a personal set of plugins bundled in, for anyone who wants the same setup.
+A custom [Adacord](https://github.com/Rowtha/adacord) fork with a personal set of plugins bundled in, for anyone who wants the same setup.
 
-> This project is a fork of Vencord and is licensed under **GPL-3.0**, the same license Vencord itself uses. Since GPL-3.0 is a copyleft license, this fork stays under GPL-3.0 too.
+> This project is a fork of Adacord and is licensed under **GPL-3.0**, the same license Adacord itself uses. Since GPL-3.0 is a copyleft license, this fork stays under GPL-3.0 too.
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@ A custom [Vencord](https://vencord.dev) fork with a personal set of plugins bund
 
 ## Linux Installation
 
-> **Note:** This method works reliably for Linux users on a similar CPU architecture (x86_64/AMD64). It does not work across operating systems — see [Windows Installation](#windows-installation) if that's you. This is because Vencord's build system uses `esbuild`, which ships a compiled, OS-specific binary rather than portable code, so a pre-built folder from Linux won't run correctly on Windows.
+> **Note:** This method works reliably for Linux users on a similar CPU architecture (x86_64/AMD64). It does not work across operating systems — see [Windows Installation](#windows-installation) if that's you. This is because Adacord's build system uses `esbuild`, which ships a compiled, OS-specific binary rather than portable code, so a pre-built folder from Linux won't run correctly on Windows.
 
 ### What you need installed first
 
@@ -37,11 +37,11 @@ sudo apt install git
 
 ### Steps
 
-1. Get the pre-built folder (e.g. `my-vencord.tar.gz`) and extract it:
+1. Get the pre-built folder (e.g. `my-adacord.tar.gz`) and extract it:
 
    ```bash
-   tar -xzf my-vencord.tar.gz -C ~/Vencord
-   cd ~/Vencord
+   tar -xzf my-adacord.tar.gz -C ~/Adacord
+   cd ~/Adacord
    ```
 
 2. **Fully close Discord.** Discord's files can't be patched while it's running.
@@ -52,9 +52,9 @@ sudo apt install git
    pnpm inject
    ```
 
-   This launches Vencord's installer and points it at the already-built files. Follow the prompts to select your Discord installation.
+   This launches Adacord's installer and points it at the already-built files. Follow the prompts to select your Discord installation.
 
-4. Restart Discord. Your plugins should now appear under Vencord's plugin settings.
+4. Restart Discord. Your plugins should now appear under Adacord's plugin settings.
 
 ### Known rough edges
 
@@ -66,11 +66,11 @@ sudo apt install git
 
 ## Windows Installation
 
-> The Linux pre-built-folder shortcut does **not** work on Windows, for the same `esbuild` native-binary reason mentioned above. On Windows, build from source instead — every step here is confirmed against Vencord's own official documentation.
+> The Linux pre-built-folder shortcut does **not** work on Windows, for the same `esbuild` native-binary reason mentioned above. On Windows, build from source instead — every step here is confirmed against Adacord's own official documentation.
 
 ### What you need installed first
 
-Per Vencord's own official docs, you need:
+Per Adacord's own official docs, you need:
 
 1. **Node.js**
 2. **git**
@@ -111,11 +111,11 @@ Each should print a version number. If any say "not recognized," restart your te
 1. Clone this repo:
 
    ```powershell
-   git clone https://github.com/Rowtha/better-vencord.git
-   cd better-vencord
+   git clone https://github.com/Rowtha/better-adacord.git
+   cd better-adacord
    ```
 
-2. Install dependencies. Vencord's own docs are explicit: use `pnpm`, not `npm` or `yarn`.
+2. Install dependencies. Adacord's own docs are explicit: use `pnpm`, not `npm` or `yarn`.
 
    ```powershell
    pnpm install
@@ -139,9 +139,9 @@ Each should print a version number. If any say "not recognized," restart your te
    pnpm inject
    ```
 
-   This runs Vencord's installer and points it at what you just built. Follow the prompts to select your Discord installation.
+   This runs Adacord's installer and points it at what you just built. Follow the prompts to select your Discord installation.
 
-6. Fully restart Discord. You should see Vencord's section appear in Discord's settings, along with the bundled plugins.
+6. Fully restart Discord. You should see Adacord's section appear in Discord's settings, along with the bundled plugins.
 
 ### Updating later
 

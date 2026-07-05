@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,6 +18,8 @@
 
 import "./styles.css";
 
+import type { Guild, RoleOrUserPermission } from "@adacord/discord-types";
+import { PermissionOverwriteType } from "@adacord/discord-types/enums";
 import { findGroupChildrenByChildId, NavContextMenuPatchCallback } from "@api/ContextMenu";
 import { definePluginSettings } from "@api/Settings";
 import ErrorBoundary from "@components/ErrorBoundary";
@@ -26,8 +28,6 @@ import { TooltipContainer } from "@components/TooltipContainer";
 import { Devs } from "@utils/constants";
 import { classes } from "@utils/misc";
 import definePlugin, { OptionType } from "@utils/types";
-import type { Guild, RoleOrUserPermission } from "@vencord/discord-types";
-import { PermissionOverwriteType } from "@vencord/discord-types/enums";
 import { findCssClassesLazy } from "@webpack";
 import { Button, ChannelStore, Dialog, GuildMemberStore, GuildRoleStore, GuildStore, match, Menu, PermissionsBits, Popout, useEffect, useRef, UserStore } from "@webpack/common";
 

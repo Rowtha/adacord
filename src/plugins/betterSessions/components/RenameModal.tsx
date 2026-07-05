@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,10 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { RenderModalProps } from "@adacord/discord-types";
 import { TextButton } from "@components/Button";
 import { SessionInfo } from "@plugins/betterSessions/types";
 import { getDefaultName, savedSessionsCache, saveSessionsToDataStore } from "@plugins/betterSessions/utils";
-import { RenderModalProps } from "@vencord/discord-types";
 import { Forms, Modal,React, TextInput } from "@webpack/common";
 import { KeyboardEvent } from "react";
 

@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { RenderModalProps } from "@adacord/discord-types";
 import * as DataStore from "@api/DataStore";
 import { Settings } from "@api/Settings";
-import { openNotificationSettingsModal } from "@components/settings/tabs/vencord/NotificationSettings";
+import { openNotificationSettingsModal } from "@components/settings/tabs/adacord/NotificationSettings";
 import { classNameFactory } from "@utils/css";
 import { useAwaiter } from "@utils/react";
-import { RenderModalProps } from "@vencord/discord-types";
 import { ConfirmModal, Forms, ListScrollerThin, Modal,openModal, React, Timestamp, useEffect, useReducer, useState } from "@webpack/common";
 import { nanoid } from "nanoid";
 import type { DispatchWithoutAction } from "react";

@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -47,11 +47,11 @@ export const IS_ANTI_CRASH_TEST = process.argv.includes("--anti-crash-test");
 export const IS_STANDALONE = process.argv.includes("--standalone");
 
 export const IS_UPDATER_DISABLED = process.argv.includes("--disable-updater");
-export const gitHash = process.env.VENCORD_HASH || execSync("git rev-parse --short HEAD", { encoding: "utf-8" }).trim();
+export const gitHash = process.env.ADACORD_HASH || execSync("git rev-parse --short HEAD", { encoding: "utf-8" }).trim();
 
 export const banner = {
     js: `
-// Vencord ${gitHash}
+// Adacord ${gitHash}
 // Standalone: ${IS_STANDALONE}
 // Platform: ${IS_STANDALONE === false ? process.platform : "Universal"}
 // Updater Disabled: ${IS_UPDATER_DISABLED}
@@ -225,15 +225,7 @@ export const gitRemotePlugin = {
             namespace: "git-remote", path: args.path
         }));
         build.onLoad({ filter, namespace: "git-remote" }, async () => {
-            let remote = process.env.VENCORD_REMOTE;
-            if (!remote) {
-                const res = await promisify(exec)("git remote get-url origin", { encoding: "utf-8" });
-                remote = res.stdout.trim()
-                    .replace("https://github.com/", "")
-                    .replace("git@github.com:", "")
-                    .replace(/.git$/, "");
-            }
-
+            const remote = process.env.ADACORD_REMOTE || "Rowtha/adacord";
             return { contents: `export default "${remote}"` };
         });
     }
@@ -358,8 +350,8 @@ export const commonOpts = {
     external: ["~plugins", "~git-hash", "~git-remote", "/assets/*"],
     inject: ["./scripts/build/inject/react.mjs"],
     jsx: "transform",
-    jsxFactory: "VencordCreateElement",
-    jsxFragment: "VencordFragment"
+    jsxFactory: "AdacordCreateElement",
+    jsxFragment: "AdacordFragment"
 };
 
 const escapedBuiltinModules = builtinModules

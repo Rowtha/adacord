@@ -2,20 +2,20 @@
 
 This package provides TypeScript types for the Webpack modules of Discord's web app.
 
-While it was primarily created for Vencord, other client mods could also benefit from this, so it is published as a standalone package!
+While it was primarily created for Adacord, other client mods could also benefit from this, so it is published as a standalone package!
 
 ## Installation
 
 ```bash
-npm install -D @vencord/discord-types
-yarn add -D @vencord/discord-types
-pnpm add -D @vencord/discord-types
+npm install -D @adacord/discord-types
+yarn add -D @adacord/discord-types
+pnpm add -D @adacord/discord-types
 ```
 
 ## Example Usage
 
 ```ts
-import type { UserStore } from "@vencord/discord-types";
+import type { UserStore } from "@adacord/discord-types";
 
 const userStore: UserStore = findStore("UserStore"); // findStore is up to you to implement, this library only provides types and no runtime code
 ```
@@ -24,7 +24,7 @@ const userStore: UserStore = findStore("UserStore"); // findStore is up to you t
 
 This library also exports some const enums that you can use from Typescript code:
 ```ts
-import { ApplicationCommandType } from "@vencord/discord-types/enums";
+import { ApplicationCommandType } from "@adacord/discord-types/enums";
 
 console.log(ApplicationCommandType.CHAT_INPUT); // 1
 ```

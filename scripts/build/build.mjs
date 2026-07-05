@@ -1,6 +1,6 @@
 #!/usr/bin/node
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -56,7 +56,7 @@ const nodeCommonOpts = {
     external: ["electron", "original-fs", "~pluginNatives", ...commonOpts.external]
 };
 
-const sourceMapFooter = s => watch ? "" : `//# sourceMappingURL=vencord://${s}.js.map`;
+const sourceMapFooter = s => watch ? "" : `//# sourceMappingURL=adacord://${s}.js.map`;
 const sourcemap = watch ? "inline" : "external";
 
 /**
@@ -122,7 +122,7 @@ const buildConfigs = ([
         ...nodeCommonOpts,
         entryPoints: ["src/main/index.ts"],
         outfile: "dist/patcher.js",
-        footer: { js: "//# sourceURL=file:///VencordPatcher\n" + sourceMapFooter("patcher") },
+        footer: { js: "//# sourceURL=file:///AdacordPatcher\n" + sourceMapFooter("patcher") },
         sourcemap,
         plugins: [
             // @ts-ignore this is never undefined
@@ -137,12 +137,12 @@ const buildConfigs = ([
     },
     {
         ...commonOpts,
-        entryPoints: ["src/Vencord.ts"],
+        entryPoints: ["src/Adacord.ts"],
         outfile: "dist/renderer.js",
         format: "iife",
         target: ["esnext"],
-        footer: { js: "//# sourceURL=file:///VencordRenderer\n" + sourceMapFooter("renderer") },
-        globalName: "Vencord",
+        footer: { js: "//# sourceURL=file:///AdacordRenderer\n" + sourceMapFooter("renderer") },
+        globalName: "Adacord",
         sourcemap,
         plugins: [
             globPlugins("discordDesktop"),
@@ -158,7 +158,7 @@ const buildConfigs = ([
         ...nodeCommonOpts,
         entryPoints: ["src/preload.ts"],
         outfile: "dist/preload.js",
-        footer: { js: "//# sourceURL=file:///VencordPreload\n" + sourceMapFooter("preload") },
+        footer: { js: "//# sourceURL=file:///AdacordPreload\n" + sourceMapFooter("preload") },
         sourcemap,
         define: {
             ...defines,
@@ -167,12 +167,12 @@ const buildConfigs = ([
         }
     },
 
-    // Vencord Desktop main & renderer & preload
+    // Adacord Desktop main & renderer & preload
     {
         ...nodeCommonOpts,
         entryPoints: ["src/main/index.ts"],
-        outfile: "dist/vencordDesktopMain.js",
-        footer: { js: "//# sourceURL=file:///VencordDesktopMain\n" + sourceMapFooter("vencordDesktopMain") },
+        outfile: "dist/adacordDesktopMain.js",
+        footer: { js: "//# sourceURL=file:///AdacordDesktopMain\n" + sourceMapFooter("adacordDesktopMain") },
         sourcemap,
         plugins: [
             ...nodeCommonOpts.plugins,
@@ -186,12 +186,12 @@ const buildConfigs = ([
     },
     {
         ...commonOpts,
-        entryPoints: ["src/Vencord.ts"],
-        outfile: "dist/vencordDesktopRenderer.js",
+        entryPoints: ["src/Adacord.ts"],
+        outfile: "dist/adacordDesktopRenderer.js",
         format: "iife",
         target: ["esnext"],
-        footer: { js: "//# sourceURL=file:///VencordDesktopRenderer\n" + sourceMapFooter("vencordDesktopRenderer") },
-        globalName: "Vencord",
+        footer: { js: "//# sourceURL=file:///AdacordDesktopRenderer\n" + sourceMapFooter("adacordDesktopRenderer") },
+        globalName: "Adacord",
         sourcemap,
         plugins: [
             globPlugins("vesktop"),
@@ -206,8 +206,8 @@ const buildConfigs = ([
     {
         ...nodeCommonOpts,
         entryPoints: ["src/preload.ts"],
-        outfile: "dist/vencordDesktopPreload.js",
-        footer: { js: "//# sourceURL=file:///VencordPreload\n" + sourceMapFooter("vencordDesktopPreload") },
+        outfile: "dist/adacordDesktopPreload.js",
+        footer: { js: "//# sourceURL=file:///AdacordPreload\n" + sourceMapFooter("adacordDesktopPreload") },
         sourcemap,
         define: {
             ...defines,

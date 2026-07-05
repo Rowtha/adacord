@@ -1,5 +1,5 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2025 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -56,7 +56,7 @@ async function onFileUpload(e: SyntheticEvent<HTMLInputElement>) {
         return new Promise<void>((resolve, reject) => {
             const reader = new FileReader();
             reader.onload = () => {
-                VencordNative.themes.uploadTheme(name, reader.result as string)
+                AdacordNative.themes.uploadTheme(name, reader.result as string)
                     .then(resolve)
                     .catch(reject);
             };
@@ -79,7 +79,7 @@ export function LocalThemesTab() {
     }, []);
 
     async function refreshLocalThemes() {
-        const themes = await VencordNative.themes.getThemesList();
+        const themes = await AdacordNative.themes.getThemesList();
         setUserThemes(themes);
     }
 
@@ -128,7 +128,7 @@ export function LocalThemesTab() {
                             ) : (
                                 <QuickAction
                                     text="Open Themes Folder"
-                                    action={() => VencordNative.themes.openFolder()}
+                                    action={() => AdacordNative.themes.openFolder()}
                                     Icon={FolderIcon}
                                 />
                             )}
@@ -139,7 +139,7 @@ export function LocalThemesTab() {
                         />
                         <QuickAction
                             text="Edit QuickCSS"
-                            action={() => VencordNative.quickCss.openEditor()}
+                            action={() => AdacordNative.quickCss.openEditor()}
                             Icon={PaintbrushIcon}
                         />
 
@@ -161,7 +161,7 @@ export function LocalThemesTab() {
                             onChange={enabled => onLocalThemeChange(theme.fileName, enabled)}
                             onDelete={async () => {
                                 onLocalThemeChange(theme.fileName, false);
-                                await VencordNative.themes.deleteTheme(theme.fileName);
+                                await AdacordNative.themes.deleteTheme(theme.fileName);
                                 refreshLocalThemes();
                             }}
                             theme={theme}

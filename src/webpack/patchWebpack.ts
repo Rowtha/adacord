@@ -1,16 +1,16 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2024 Vendicated, Nuckyz, and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import { WebpackRequire } from "@adacord/discord-types/webpack";
 import { Settings } from "@api/Settings";
 import { traceFunctionWithResults } from "@debug/Tracer";
 import { makeLazy } from "@utils/lazy";
 import { Logger } from "@utils/Logger";
 import { interpolateIfDefined } from "@utils/misc";
 import { Patch, PatchReplacement } from "@utils/types";
-import { WebpackRequire } from "@vencord/discord-types/webpack";
 
 import { AnyModuleFactory, AnyWebpackRequire, MaybePatchedModuleFactory, PatchedModuleFactory } from "./types";
 import { _blacklistBadModules, _initWebpack, factoryListeners, findModuleFactory, moduleListeners, waitForSubscriptions, wreq } from "./webpack";

@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,6 +18,7 @@
 
 import "./styles.css";
 
+import { RenderModalProps } from "@adacord/discord-types";
 import { ChatBarButton, ChatBarButtonFactory } from "@api/ChatButtons";
 import { definePluginSettings } from "@api/Settings";
 import { Devs } from "@utils/constants";
@@ -25,7 +26,6 @@ import { classNameFactory } from "@utils/css";
 import { getTheme, insertTextIntoChatInputBox, Theme } from "@utils/discord";
 import { Margins } from "@utils/margins";
 import definePlugin, { IconComponent, OptionType } from "@utils/types";
-import { RenderModalProps } from "@vencord/discord-types";
 import { Forms, Modal,openModal, Parser, Select, useMemo, useState } from "@webpack/common";
 
 const settings = definePluginSettings({

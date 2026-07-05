@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -44,8 +44,8 @@ function VesktopSection() {
     return (
         <Flex className={Margins.bottom20} flexDirection="column" gap="1em">
             <Card variant="info">
-                <HeadingSecondary>Vesktop & Vencord</HeadingSecondary>
-                <Paragraph>Vesktop and Vencord are two separate things. This updater is for Vencord.</Paragraph>
+                <HeadingSecondary>Vesktop & Adacord</HeadingSecondary>
+                <Paragraph>Vesktop and Adacord are two separate things. This updater is for Adacord.</Paragraph>
                 <Paragraph className={Margins.top8}>
                     You receive separate popups for Vesktop updates. You can also manually update by installing the <Link href="https://vesktop.dev/install">latest version</Link>.
                 </Paragraph>
@@ -83,13 +83,13 @@ function Updater() {
 
             <FormSwitch
                 title="Automatically update"
-                description="Automatically update Vencord without confirmation prompt"
+                description="Automatically update Adacord without confirmation prompt"
                 value={settings.autoUpdate}
                 onChange={(v: boolean) => settings.autoUpdate = v}
             />
             <FormSwitch
                 title="Get notified when an automatic update completes"
-                description="Show a notification when Vencord automatically updates"
+                description="Show a notification when Adacord automatically updates"
                 value={settings.autoUpdateNotification}
                 onChange={(v: boolean) => settings.autoUpdateNotification = v}
                 disabled={!settings.autoUpdate}

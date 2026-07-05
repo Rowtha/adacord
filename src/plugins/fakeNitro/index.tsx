@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import type { Emoji, Message, RenderModalProps, Sticker } from "@adacord/discord-types";
+import { StickerFormatType } from "@adacord/discord-types/enums";
 import { addMessagePreEditListener, addMessagePreSendListener, removeMessagePreEditListener, removeMessagePreSendListener } from "@api/MessageEvents";
 import { definePluginSettings } from "@api/Settings";
 import { ApngBlendOp, ApngDisposeOp, parseAPNG } from "@utils/apng";
@@ -23,8 +25,6 @@ import { Devs } from "@utils/constants";
 import { getCurrentGuild } from "@utils/discord";
 import { Logger } from "@utils/Logger";
 import definePlugin, { OptionType } from "@utils/types";
-import type { Emoji, Message, RenderModalProps, Sticker } from "@vencord/discord-types";
-import { StickerFormatType } from "@vencord/discord-types/enums";
 import { findByCodeLazy, findByPropsLazy, proxyLazyWebpack } from "@webpack";
 import { ChannelStore, ConfirmModal, DraftType, EmojiStore, FluxDispatcher, Forms, GuildMemberStore, IconUtils, lodash, openModal, Parser, PermissionsBits, PermissionStore, StickersStore, UploadHandler, UserSettingsActionCreators, UserSettingsProtoStore, UserStore } from "@webpack/common";
 import { applyPalette, GIFEncoder, quantize } from "gifenc";

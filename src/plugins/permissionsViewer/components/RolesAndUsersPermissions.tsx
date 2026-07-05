@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Guild, RenderModalProps, Role, RoleOrUserPermission, UnicodeEmoji, User } from "@adacord/discord-types";
+import { PermissionOverwriteType } from "@adacord/discord-types/enums";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Flex } from "@components/Flex";
 import { CopyIdIcon, InfoIcon, OwnerCrownIcon } from "@components/Icons";
@@ -23,8 +25,6 @@ import { buildExtraRoleContextMenuItems } from "@plugins/betterRoleContext";
 import { cl, getGuildPermissionSpecMap, loadGetGuildPermissionSpecMap } from "@plugins/permissionsViewer/utils";
 import { copyToClipboard } from "@utils/clipboard";
 import { getIntlMessage, getUniqueUsername } from "@utils/discord";
-import { Guild, RenderModalProps, Role, RoleOrUserPermission, UnicodeEmoji, User } from "@vencord/discord-types";
-import { PermissionOverwriteType } from "@vencord/discord-types/enums";
 import { findByCodeLazy } from "@webpack";
 import { ContextMenuApi, FluxDispatcher, GuildMemberStore, GuildRoleStore, i18n, Menu, Modal, openModalLazy, PermissionsBits, ScrollerThin, Text, Tooltip, useEffect, useMemo, useRef, UserStore, useState, useStateFromStores } from "@webpack/common";
 

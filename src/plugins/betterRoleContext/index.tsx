@@ -1,9 +1,10 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import { Guild, PopoutProps, Role } from "@adacord/discord-types";
 import { definePluginSettings } from "@api/Settings";
 import { getUserSettingLazy } from "@api/UserSettings";
 import { CopyIdIcon, ImageIcon } from "@components/Icons";
@@ -13,7 +14,6 @@ import { getCurrentChannel, getCurrentGuild, getIntlMessage, openImageModal } fr
 import { isTruthy } from "@utils/guards";
 import { classes } from "@utils/misc";
 import definePlugin, { OptionType } from "@utils/types";
-import { Guild, PopoutProps, Role } from "@vencord/discord-types";
 import { findByCodeLazy, findByPropsLazy, findCssClassesLazy } from "@webpack";
 import { ContextMenuApi, GuildRoleStore, Menu, PermissionStore, Popout, useRef } from "@webpack/common";
 import { ComponentType } from "react";

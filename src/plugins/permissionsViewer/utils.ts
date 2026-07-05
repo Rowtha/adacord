@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,9 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Guild, GuildMember, Role } from "@adacord/discord-types";
+import { PermissionOverwriteType } from "@adacord/discord-types/enums";
 import { classNameFactory } from "@utils/css";
-import { Guild, GuildMember, Role } from "@vencord/discord-types";
-import { PermissionOverwriteType } from "@vencord/discord-types/enums";
 import { extractAndLoadChunksLazy, findByPropsLazy } from "@webpack";
 import { GuildRoleStore } from "@webpack/common";
 

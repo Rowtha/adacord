@@ -1,6 +1,6 @@
-# Vencord Code Review Style Guide
+# Adacord Code Review Style Guide
 
-You are reviewing PRs for **Vencord**, a modification for the Discord web app (and Electron app). It uses TypeScript, React, and webpack patching to inject into Discord. The codebase has extensive built-in utilities that contributors MUST use. Be direct, actionable, no pleasantries. Use natural, human language. Be blunt when code is bad.
+You are reviewing PRs for **Adacord**, a modification for the Discord web app (and Electron app). It uses TypeScript, React, and webpack patching to inject into Discord. The codebase has extensive built-in utilities that contributors MUST use. Be direct, actionable, no pleasantries. Use natural, human language. Be blunt when code is bad.
 
 ---
 
@@ -70,7 +70,7 @@ Flag these and suggest the fix:
 | `cdn.discordapp.com/emojis/...`                                  | `IconUtils.getEmojiURL(...)`                | Same                                |
 | `/api/v9/...` or `/users/@me`                                    | `Constants.Endpoints.*` or `RestAPI`        | Endpoints change                    |
 | `@api/Styles` for classNameFactory                               | `@utils/css`                                | `@api/Styles` is deprecated         |
-| `any` for Discord objects                                        | Import from `@vencord/discord-types`        | Type safety                         |
+| `any` for Discord objects                                        | Import from `@adacord/discord-types`        | Type safety                         |
 | `as unknown as` casting                                          | Find the correct type                       | Unsafe                              |
 | `React.memo()`                                                   | Remove it                                   | Not needed                          |
 | `React.cloneElement` / `React.isValidElement` / `React.Children` | Find another approach                       | Forbidden                           |
@@ -79,7 +79,7 @@ Flag these and suggest the fix:
 | CSS-only plugins                                                 | Must have actual logic/patches              | Not allowed                         |
 | Commented-out dead code                                          | Delete it                                   | Git has history                     |
 | `document.querySelector(...)`                                    | Use webpack patches                         | DOM manipulation forbidden          |
-| `Vencord.Plugins.plugins["X"]`                                   | `isPluginEnabled` + direct import           | Proper interop                      |
+| `Adacord.Plugins.plugins["X"]`                                   | `isPluginEnabled` + direct import           | Proper interop                      |
 | `plugin.started` check                                           | `isPluginEnabled(plugin.name)`              | Proper interop                      |
 | Unexplained magic numbers                                        | Named constants                             | Readability                         |
 
@@ -145,7 +145,7 @@ useEffect(() => {
 Never use `any` for Discord objects. Import proper types:
 
 ```typescript
-import { User, Channel, Guild, GuildMember, Message, Role } from "@vencord/discord-types";
+import { User, Channel, Guild, GuildMember, Message, Role } from "@adacord/discord-types";
 ```
 
 Store types, component prop types, and action types are all available. Never use `as unknown as` casting as a workaround.
@@ -222,7 +222,7 @@ if (!isPluginEnabled(otherPlugin.name)) return null;
 otherPlugin.someFunction();
 
 // BAD
-Vencord.Plugins.plugins["OtherPlugin"].someFunction();
+Adacord.Plugins.plugins["OtherPlugin"].someFunction();
 (somePlugin as unknown as { method(): void }).method();
 ```
 

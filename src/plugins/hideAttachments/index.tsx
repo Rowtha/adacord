@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,6 +18,7 @@
 
 import "./styles.css";
 
+import { Message } from "@adacord/discord-types";
 import { get, set } from "@api/DataStore";
 import { updateMessage } from "@api/MessageUpdater";
 import { migratePluginSettings } from "@api/Settings";
@@ -25,7 +26,6 @@ import { ImageInvisible, ImageVisible } from "@components/Icons";
 import { Devs } from "@utils/constants";
 import { classes } from "@utils/misc";
 import definePlugin from "@utils/types";
-import { Message } from "@vencord/discord-types";
 import { ChannelStore } from "@webpack/common";
 
 const KEY = "HideAttachments_HiddenIds";

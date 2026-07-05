@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,8 +17,8 @@
 */
 
 import { fetchBuffer, fetchJson } from "@main/utils/http";
+import { ADACORD_USER_AGENT } from "@shared/adacordUserAgent";
 import { IpcEvents } from "@shared/IpcEvents";
-import { VENCORD_USER_AGENT } from "@shared/vencordUserAgent";
 import { ipcMain } from "electron";
 import { writeFile } from "fs/promises";
 import { join } from "path";
@@ -26,7 +26,7 @@ import { join } from "path";
 import gitHash from "~git-hash";
 import gitRemote from "~git-remote";
 
-import { serializeErrors, VENCORD_FILES } from "./common";
+import { ADACORD_FILES,serializeErrors } from "./common";
 
 const API_BASE = `https://api.github.com/repos/${gitRemote}`;
 let PendingUpdates = [] as [string, string][];
@@ -37,7 +37,7 @@ async function githubGet<T = any>(endpoint: string) {
             Accept: "application/vnd.github+json",
             // "All API requests MUST include a valid User-Agent header.
             // Requests with no User-Agent header will be rejected."
-            "User-Agent": VENCORD_USER_AGENT
+            "User-Agent": ADACORD_USER_AGENT
         }
     });
 }
@@ -64,7 +64,7 @@ async function fetchUpdates() {
         return false;
 
     data.assets.forEach(({ name, browser_download_url }) => {
-        if (VENCORD_FILES.some(s => name.startsWith(s))) {
+        if (ADACORD_FILES.some(s => name.startsWith(s))) {
             PendingUpdates.push([name, browser_download_url]);
         }
     });

@@ -1,5 +1,5 @@
 /*
- * Vencord, a modification for Discord's desktop app
+ * Adacord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,19 +18,19 @@
 
 import "./PluginModal.css";
 
+import { RenderModalProps, User } from "@adacord/discord-types";
 import { generateId } from "@api/Commands";
 import { hasAnyVisibleSettings, isSettingHidden } from "@api/PluginManager";
 import { useSettings } from "@api/Settings";
 import { BaseText } from "@components/BaseText";
 import ErrorBoundary from "@components/ErrorBoundary";
+import { gitRemote } from "@shared/adacordUserAgent";
 import { debounce } from "@shared/debounce";
-import { gitRemote } from "@shared/vencordUserAgent";
 import { classNameFactory } from "@utils/css";
 import { proxyLazy } from "@utils/lazy";
 import { Margins } from "@utils/margins";
 import { classes } from "@utils/misc";
 import { OptionType, Plugin, PluginTag } from "@utils/types";
-import { RenderModalProps, User } from "@vencord/discord-types";
 import { findCssClassesLazy } from "@webpack";
 import { Clickable, FluxDispatcher, Forms, Modal,openModal, React, Text, Tooltip, useEffect, useMemo, UserStore, UserSummaryItem, UserUtils, useState } from "@webpack/common";
 import { Constructor } from "type-fest";
@@ -178,7 +178,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                         <div className="vc-settings-modal-links">
                             <WebsiteButton
                                 text="View more info"
-                                href={`https://vencord.dev/plugins/${plugin.name}`}
+                                href={`https://github.com/Rowtha/adacord`}
                             />
                             <GithubButton
                                 text="View source code"

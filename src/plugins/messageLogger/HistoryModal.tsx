@@ -1,15 +1,15 @@
 /*
- * Vencord, a Discord client mod
+ * Adacord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import { RenderModalProps } from "@adacord/discord-types";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { TooltipContainer } from "@components/TooltipContainer";
 import { classNameFactory } from "@utils/css";
 import { Margins } from "@utils/margins";
 import { classes } from "@utils/misc";
-import { RenderModalProps } from "@vencord/discord-types";
 import { findCssClassesLazy } from "@webpack";
 import { Modal,openModal, TabBar, Timestamp, useState } from "@webpack/common";
 
