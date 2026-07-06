@@ -40,7 +40,7 @@ sudo apt install git
 1. Get the pre-built folder (e.g. `my-adacord.tar.gz`) and extract it:
 
    ```bash
-   tar -xzf my-adacord.tar.gz -C ~/Adacord
+   tar -xzf linux-adacord.tar.gz -C ~/Adacord
    cd ~/Adacord
    ```
 
@@ -111,8 +111,8 @@ Each should print a version number. If any say "not recognized," restart your te
 1. Clone this repo:
 
    ```powershell
-   git clone https://github.com/Rowtha/better-adacord.git
-   cd better-adacord
+   git clone https://github.com/Rowtha/adacord.git
+   cd adacord
    ```
 
 2. Install dependencies. Adacord's own docs are explicit: use `pnpm`, not `npm` or `yarn`.
