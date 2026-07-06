@@ -1,4 +1,4 @@
-# adacord
+# Adacord
 
 A custom [Vencord](https://github.com/Vendicated/Vencord) fork with a personal set of plugins bundled in, for anyone who wants the same setup.
 
