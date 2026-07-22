@@ -1,3 +1,4 @@
+guys the 3 thousand commits are fake, i accidentally copied vencords entire commit history when trying to update this fork to the latest ver of vencord
 guide made by claudre
 # Adacord
 
