@@ -69,6 +69,8 @@ sudo apt install git
 ## Windows Installation
 
 > The Linux pre-built-folder shortcut does **not** work on Windows, for the same `esbuild` native-binary reason mentioned above. On Windows, build from source instead — every step here is confirmed against Adacord's own official documentation.
+>
+> also theres now a windows .exe to auto do this so.... yeah...... not signed yet tho
 
 ### What you need installed first
 
