@@ -3,6 +3,7 @@ node_modules
 
 *.exe
 adacord_installer
+installer/windows/adacord.ico
 
 .idea
 .DS_Store

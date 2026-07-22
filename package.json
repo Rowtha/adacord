@@ -20,6 +20,8 @@
         "buildWebStandalone": "pnpm buildWeb --standalone",
         "buildReporter": "pnpm buildWebStandalone --reporter --skip-extension",
         "buildReporterDesktop": "pnpm build --reporter",
+        "build:installer:linux": "bash installer/linux/build.sh",
+        "build:installer:windows": "bash installer/windows/build.sh",
         "watch": "pnpm build --watch",
         "dev": "pnpm watch",
         "watchWeb": "pnpm buildWeb --watch",
