@@ -1,15 +1,15 @@
 {
-    "name": "vencord",
+    "name": "adacord",
     "private": "true",
-    "version": "1.14.16",
+    "version": "1.14.15",
     "description": "The cutest Discord client mod",
-    "homepage": "https://github.com/Vendicated/Vencord#readme",
+    "homepage": "https://github.com/Rowtha/better-vencord#readme",
     "bugs": {
-        "url": "https://github.com/Vendicated/Vencord/issues"
+        "url": "https://github.com/Rowtha/better-vencord/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Vendicated/Vencord.git"
+        "url": "git+https://github.com/Rowtha/better-vencord.git"
     },
     "license": "GPL-3.0-or-later",
     "author": "Vendicated",
@@ -24,7 +24,7 @@
         "dev": "pnpm watch",
         "watchWeb": "pnpm buildWeb --watch",
         "generatePluginJson": "tsx scripts/generatePluginList.ts",
-        "generateTypes": "tspc --emitDeclarationOnly --declaration --outDir packages/vencord-types --allowJs false",
+        "generateTypes": "tspc --emitDeclarationOnly --declaration --outDir packages/adacord-types --allowJs false",
         "inject": "node scripts/runInstaller.mjs -- --install",
         "uninject": "node scripts/runInstaller.mjs -- --uninstall",
         "lint": "eslint",
@@ -45,6 +45,7 @@
         "virtual-merge": "^1.0.1"
     },
     "devDependencies": {
+        "@adacord/discord-types": "link:packages/discord-types",
         "@stylistic/eslint-plugin": "^5.10.0",
         "@types/chrome": "^0.2.0",
         "@types/lodash": "^4.17.24",
@@ -52,7 +53,6 @@
         "@types/react": "19.1.0",
         "@types/react-dom": "19.1.0",
         "@types/yazl": "^3.3.1",
-        "@vencord/discord-types": "link:packages/discord-types",
         "diff": "^9.0.0",
         "esbuild": "^0.28.1",
         "eslint": "10.6.0",
@@ -80,7 +80,7 @@
         "typescript-transform-paths": "^3.5.6",
         "zip-local": "^0.3.5"
     },
-    "packageManager": "pnpm@11.9.0",
+    "packageManager": "pnpm@11.15.1",
     "engines": {
         "node": ">=22"
     }
