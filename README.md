@@ -1,8 +1,9 @@
+guide made by claudre
 # Adacord
 
 A custom [Vencord](https://github.com/Vendicated/Vencord) fork with a personal set of plugins bundled in, for anyone who wants the same setup.
 
-> This project is a fork of Adacord and is licensed under **GPL-3.0**, the same license Vencord itself uses. Since GPL-3.0 is a copyleft license, this fork stays under GPL-3.0 too.
+> This project is a fork of Vencord and is licensed under **GPL-3.0**, the same license Vencord itself uses. Since GPL-3.0 is a copyleft license, this fork stays under GPL-3.0 too.
 
 ## Table of Contents
 
