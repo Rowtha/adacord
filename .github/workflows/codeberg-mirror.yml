@@ -10,7 +10,7 @@ on:
 
 jobs:
     codeberg:
-        if: github.repository == 'Rowtha/better-vencord'
+        if: github.repository == 'Vendicated/Vencord'
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v7

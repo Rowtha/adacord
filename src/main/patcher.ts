@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,7 +23,7 @@ import { dirname, join } from "path";
 import { RendererSettings } from "./settings";
 import { IS_VANILLA } from "./utils/constants";
 
-console.log("[Adacord] Starting up...");
+console.log("[Vencord] Starting up...");
 
 // Our injector file at app/index.js
 const injectorPath = require.main!.filename;
@@ -134,7 +134,7 @@ if (!IS_VANILLA) {
         s.set("DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING", true);
     });
 
-    process.env.DATA_DIR = join(app.getPath("userData"), "..", "Adacord");
+    process.env.DATA_DIR = join(app.getPath("userData"), "..", "Vencord");
 
     // Monkey patch commandLine to:
     // - disable WidgetLayering: Fix DevTools context menus https://github.com/electron/electron/issues/38790
@@ -159,8 +159,8 @@ if (!IS_VANILLA) {
     app.commandLine.appendSwitch("disable-background-timer-throttling");
     app.commandLine.appendSwitch("disable-backgrounding-occluded-windows");
 } else {
-    console.log("[Adacord] Running in vanilla mode. Not loading Adacord");
+    console.log("[Vencord] Running in vanilla mode. Not loading Vencord");
 }
 
-console.log("[Adacord] Loading original Discord app.asar");
+console.log("[Vencord] Loading original Discord app.asar");
 require(require.main!.filename);

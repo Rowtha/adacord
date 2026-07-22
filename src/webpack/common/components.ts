@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import * as t from "@adacord/discord-types";
 import { TextCompat } from "@components/BaseText";
 import { ButtonCompat } from "@components/Button";
 import { Divider } from "@components/Divider";
@@ -26,15 +25,16 @@ import { Paragraph } from "@components/Paragraph";
 import { TooltipContainer as TooltipContainerComponent } from "@components/TooltipContainer";
 import { TooltipFallback } from "@components/TooltipFallback";
 import { LazyComponent } from "@utils/lazyReact";
+import * as t from "@vencord/discord-types";
 import { filters, find, findCssClassesLazy, mapMangledCssClasses, mapMangledModuleLazy, proxyLazyWebpack, waitFor } from "@webpack";
 
 import { waitForComponent } from "./internal";
 
 export const Forms = {
     // TODO: Stop using this and use Heading/Paragraph directly
-    /** @deprecated use Heading from Adacord */
+    /** @deprecated use Heading from Vencord */
     FormTitle: Heading,
-    /** @deprecated use Paragraph from Adacord */
+    /** @deprecated use Paragraph from Vencord */
     FormText: Paragraph,
     /** @deprecated don't use this */
     FormSection: "section" as never, // Backwards compat since Vesktop uses this
@@ -43,17 +43,17 @@ export const Forms = {
 };
 
 // TODO: Stop using this and use Paragraph/Span directly
-/** @deprecated use Paragraph, Span, or BaseText from Adacord */
+/** @deprecated use Paragraph, Span, or BaseText from Vencord */
 export const Text = TextCompat;
-/** @deprecated use Button from Adacord */
+/** @deprecated use Button from Vencord */
 export const Button = ButtonCompat;
-/** @deprecated Use FormSwitch from Adacord */
+/** @deprecated Use FormSwitch from Vencord */
 export const Switch = FormSwitchCompat as never;
 
 export const Checkbox = waitForComponent<t.Checkbox>("Checkbox", filters.componentByCode('"data-toggleable-component":"checkbox'));
 
 export const Tooltip = waitForComponent<t.Tooltip>("Tooltip", m => m.prototype?.shouldShowTooltip && m.prototype.render, TooltipFallback);
-/** @deprecated import from @adacord/components */
+/** @deprecated import from @vencord/components */
 export const TooltipContainer = TooltipContainerComponent as never;
 
 // FIXME: t.TextInput was for the old void components, and is not 100% correct for the mana component
@@ -68,14 +68,17 @@ export const TabBar = waitForComponent("TabBar", filters.componentByCode("ref:th
 // TODO: remake this component
 export const Clickable = waitForComponent<t.Clickable>("Clickable", filters.componentByCode("this.context?this.renderNonInteractive():"));
 export const Avatar = waitForComponent<t.Avatar>("Avatar", filters.componentByCode(".size-1.375*"));
+export const UserSummaryItem = waitForComponent("UserSummaryItem", filters.componentByCode("defaultRenderUser", "showDefaultAvatarsForNullUsers"));
 
 export let ColorPicker: t.ColorPicker = () => null;
 export function setColorPicker(component: t.ColorPicker) {
     ColorPicker = component;
 }
 
-
-export const UserSummaryItem = waitForComponent("UserSummaryItem", filters.componentByCode("defaultRenderUser", "showDefaultAvatarsForNullUsers"));
+export let RoleMemberPopout: t.RoleMemberPopout = () => null;
+export function setRoleMemberPopout(component: t.RoleMemberPopout) {
+    RoleMemberPopout = component;
+}
 
 export let createScroller: ((scrollbarClassName: string, fadeClassName: string, customThemeClassName: string) => t.ScrollerThin) | undefined;
 export function setCreateScroller(cs: NonNullable<typeof createScroller>) {

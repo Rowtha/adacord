@@ -1,5 +1,5 @@
 /*
- * Adacord, a Discord client mod
+ * Vencord, a Discord client mod
  * Copyright (c) 2023 Vendicated, ant0n, FieryFlames and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -45,7 +45,7 @@ export default definePlugin({
             replacement: [
                 {
                     // if (inlinedCalculatePlayingCount(a,b) >= limit) return;
-                    match: /(BURST_REACTION_EFFECT_PLAY:\i=>{.+?if\()(\(\(\i,\i\)=>.+?\(\i,\i\))>=5+?(?=\))/,
+                    match: /(BURST_REACTION_EFFECT_PLAY:(?:\i=>|function\(\i\)){.+?if\()(\(?(?:function)?\(\i,\i\)(?:=>)?{.+?\(\i,\i\))>=5+?(?=\))/,
                     replace: (_, rest, playingCount) => `${rest}!$self.shouldPlayBurstReaction(${playingCount})`
                 }
             ]

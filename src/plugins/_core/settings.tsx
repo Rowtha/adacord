@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and Megumin
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 
 import { definePluginSettings } from "@api/Settings";
 import { BackupRestoreIcon, CloudIcon, MainSettingsIcon, PaintbrushIcon, PatchHelperIcon, PlaceholderIcon, PluginsIcon, UpdaterIcon, VesktopSettingsIcon } from "@components/Icons";
-import { AdacordTab,BackupAndRestoreTab, CloudTab, PatchHelperTab, PluginsTab, ThemesTab, UpdaterTab } from "@components/settings/tabs";
+import { BackupAndRestoreTab, CloudTab, PatchHelperTab, PluginsTab, ThemesTab, UpdaterTab, VencordTab } from "@components/settings/tabs";
 import { Devs } from "@utils/constants";
 import { isTruthy } from "@utils/guards";
 import definePlugin, { IconProps, OptionType } from "@utils/types";
@@ -80,7 +80,7 @@ interface SettingsLayoutBuilder {
 const settings = definePluginSettings({
     settingsLocation: {
         type: OptionType.SELECT,
-        description: "Where to put the Adacord settings section",
+        description: "Where to put the Vencord settings section",
         options: [
             { label: "At the very top", value: "top" },
             { label: "Above the Nitro section", value: "aboveNitro", default: true },
@@ -90,9 +90,9 @@ const settings = definePluginSettings({
             { label: "At the very bottom", value: "bottom" },
         ] as { label: string; value: SettingsLocation; default?: boolean; }[]
     },
-    includeAdacordInfoWhenCopying: {
+    includeVencordInfoWhenCopying: {
         type: OptionType.BOOLEAN,
-        description: "Also copy Adacord info (Adacord, Electron, Chromium) when clicking the version info in the bottom left area of the Settings page",
+        description: "Also copy Vencord info (Vencord, Electron, Chromium) when clicking the version info in the bottom left area of the Settings page",
         default: true
     }
 });
@@ -164,52 +164,52 @@ export default definePlugin({
         if (originalLayoutBuilder.key !== "$Root") return layout;
         if (!Array.isArray(layout)) return layout;
 
-        if (layout.some(s => s?.key === "adacord_section")) return layout;
+        if (layout.some(s => s?.key === "vencord_section")) return layout;
 
         const { buildEntry } = this;
 
-        const adacordEntries: SettingsLayoutNode[] = [
+        const vencordEntries: SettingsLayoutNode[] = [
             buildEntry({
-                key: "adacord_main",
-                title: "Adacord",
-                panelTitle: "Adacord Settings",
-                Component: AdacordTab,
+                key: "vencord_main",
+                title: "Vencord",
+                panelTitle: "Vencord Settings",
+                Component: VencordTab,
                 Icon: MainSettingsIcon
             }),
             buildEntry({
-                key: "adacord_plugins",
+                key: "vencord_plugins",
                 title: "Plugins",
                 Component: PluginsTab,
                 Icon: PluginsIcon
             }),
             buildEntry({
-                key: "adacord_themes",
+                key: "vencord_themes",
                 title: "Themes",
                 Component: ThemesTab,
                 Icon: PaintbrushIcon
             }),
             !IS_UPDATER_DISABLED && UpdaterTab && buildEntry({
-                key: "adacord_updater",
+                key: "vencord_updater",
                 title: "Updater",
-                panelTitle: "Adacord Updater",
+                panelTitle: "Vencord Updater",
                 Component: UpdaterTab,
                 Icon: UpdaterIcon
             }),
             buildEntry({
-                key: "adacord_cloud",
+                key: "vencord_cloud",
                 title: "Cloud",
-                panelTitle: "Adacord Cloud",
+                panelTitle: "Vencord Cloud",
                 Component: CloudTab,
                 Icon: CloudIcon
             }),
             buildEntry({
-                key: "adacord_backup_restore",
+                key: "vencord_backup_restore",
                 title: "Backup & Restore",
                 Component: BackupAndRestoreTab,
                 Icon: BackupRestoreIcon
             }),
             !IS_STANDALONE && PatchHelperTab && buildEntry({
-                key: "adacord_patch_helper",
+                key: "vencord_patch_helper",
                 title: "Patch Helper",
                 Component: PatchHelperTab,
                 Icon: PatchHelperIcon
@@ -221,7 +221,7 @@ export default definePlugin({
                 if (Object.values(FallbackSectionTypes).includes(section)) return null;
 
                 return buildEntry({
-                    key: `adacord_deprecated_custom_${section}`,
+                    key: `vencord_deprecated_custom_${section}`,
                     title: label,
                     Component: element,
                     Icon: section === "Vesktop" ? VesktopSettingsIcon : PlaceholderIcon
@@ -229,11 +229,11 @@ export default definePlugin({
             })
         ].filter(isTruthy);
 
-        const adacordSection: SettingsLayoutNode = {
-            key: "adacord_section",
+        const vencordSection: SettingsLayoutNode = {
+            key: "vencord_section",
             type: LayoutTypes.SECTION,
-            useTitle: () => "Adacord Settings",
-            buildLayout: () => adacordEntries
+            useTitle: () => "Vencord Settings",
+            buildLayout: () => vencordEntries
         };
 
         const { settingsLocation } = settings.store;
@@ -256,7 +256,7 @@ export default definePlugin({
             idx += 1;
         }
 
-        layout.splice(idx, 0, adacordSection);
+        layout.splice(idx, 0, vencordSection);
 
         return layout;
     },
@@ -266,12 +266,12 @@ export default definePlugin({
     customEntries: [] as EntryOptions[],
 
     get electronVersion() {
-        return AdacordNative.native.getVersions().electron || window.legcord?.electron || null;
+        return VencordNative.native.getVersions().electron || window.legcord?.electron || null;
     },
 
     get chromiumVersion() {
         try {
-            return AdacordNative.native.getVersions().chrome
+            return VencordNative.native.getVersions().chrome
                 // @ts-expect-error Typescript will add userAgentData IMMEDIATELY
                 || navigator.userAgentData?.brands?.find(b => b.brand === "Chromium" || b.brand === "Google Chrome")?.version
                 || null;
@@ -291,7 +291,7 @@ export default definePlugin({
     getInfoRows() {
         const { electronVersion, chromiumVersion, additionalInfo } = this;
 
-        const rows = [`Adacord ${gitHash}${additionalInfo}`];
+        const rows = [`Vencord ${gitHash}${additionalInfo}`];
 
         if (electronVersion) rows.push(`Electron ${electronVersion}`);
         if (chromiumVersion) rows.push(`Chromium ${chromiumVersion}`);
@@ -300,7 +300,7 @@ export default definePlugin({
     },
 
     getInfoString() {
-        if (!settings.store.includeAdacordInfoWhenCopying) return "";
+        if (!settings.store.includeVencordInfoWhenCopying) return "";
         return "\n" + this.getInfoRows().join("\n");
     },
 

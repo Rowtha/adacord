@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2025 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,13 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { Message, Sticker } from "@adacord/discord-types";
 import { findGroupChildrenByChildId, NavContextMenuPatchCallback } from "@api/ContextMenu";
 import { isPluginEnabled } from "@api/PluginManager";
 import ExpressionClonerPlugin from "@plugins/expressionCloner";
 import { Devs } from "@utils/constants";
 import { copyWithToast } from "@utils/discord";
 import definePlugin from "@utils/types";
+import { Message, Sticker } from "@vencord/discord-types";
 import { Menu, React, StickersStore } from "@webpack/common";
 
 const StickerExt = [, "png", "png", "json", "gif"] as const;
@@ -51,7 +51,7 @@ function buildMenuItem(sticker: PartialSticker, addBottomSeparator: boolean) {
                     id="vc-open-sticker-link"
                     key="vc-open-sticker-link"
                     label="Open Link"
-                    action={() => AdacordNative.native.openExternal(getUrl(sticker))}
+                    action={() => VencordNative.native.openExternal(getUrl(sticker))}
                 />
             </Menu.MenuGroup>
             {addBottomSeparator && <Menu.MenuSeparator />}

@@ -1,19 +1,20 @@
 /*
- * Adacord, a Discord client mod
+ * Vencord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 import { definePluginSettings } from "@api/Settings";
 import { disableStyle, enableStyle } from "@api/Styles";
-import { buildPluginMenuEntries, buildThemeMenuEntries } from "@plugins/adacordToolbox/menu";
+import { buildPluginMenuEntries, buildThemeMenuEntries } from "@plugins/vencordToolbox/menu";
 import { Devs } from "@utils/constants";
 import { classNameFactory } from "@utils/css";
+import { getIntlMessage } from "@utils/discord";
 import { Logger } from "@utils/Logger";
 import definePlugin, { OptionType } from "@utils/types";
 import { findCssClassesLazy } from "@webpack";
 import { ComponentDispatch, FocusLock, Menu, useEffect, useRef } from "@webpack/common";
-import type { HTMLAttributes, ReactNode } from "react";
+import type { HTMLAttributes, ReactElement, ReactNode } from "react";
 
 import fullHeightStyle from "./fullHeightContext.css?managed";
 
@@ -95,8 +96,8 @@ export default definePlugin({
             find: "this.renderArtisanalHack()",
             replacement: [
                 {
-                    match: /class (\i)(?= extends \i\.PureComponent.+?static contextType=.+?jsx\)\(\1,\{mode:)/,
-                    replace: "var $1=$self.Layer;class AdacordPatchedOldFadeLayer",
+                    match: /class (\i)( extends \i\.PureComponent.+?jsx\)\(\1,\{mode:)/,
+                    replace: "var $1=$self.Layer;class VencordPatchedOldFadeLayer$2",
                     predicate: () => settings.store.disableFade
                 },
                 { // Lazy-load contents
@@ -146,7 +147,7 @@ export default definePlugin({
             find: "handleOpenSettingsContextMenu=",
             replacement: {
                 match: /(?=handleOpenSettingsContextMenu=.{0,100}?null!=\i&&.{0,100}?(await [^};]*?\)\)))/,
-                replace: "_adacordBetterSettingsEagerLoad=(async ()=>$1)();"
+                replace: "_vencordBetterSettingsEagerLoad=(async ()=>$1)();"
             },
             predicate: () => settings.store.eagerLoad
         },
@@ -168,7 +169,7 @@ export default definePlugin({
     // Thus, we sanity check webpack modules
     Layer(props: LayerProps) {
         try {
-            [FocusLock.$$adacordGetWrappedComponent(), ComponentDispatch, Classes.layer].forEach(e => e.test);
+            [FocusLock.$$vencordGetWrappedComponent(), ComponentDispatch, Classes.layer].forEach(e => e.test);
         } catch {
             new Logger("BetterSettings").error("Failed to find some components");
             return props.children;
@@ -177,15 +178,15 @@ export default definePlugin({
         return <Layer {...props} />;
     },
 
-    transformSettingsEntries(list) {
+    transformSettingsEntries(list: ReactElement<any>[]): ReactNode[] {
         const items: ReactNode[] = [];
 
         for (const item of list) {
             const { key, props } = item;
             if (!props) continue;
 
-            if (key === "adacord_plugins" || key === "adacord_themes") {
-                const children = key === "adacord_plugins"
+            if (key === "vencord_plugins" || key === "vencord_themes") {
+                const children = key === "vencord_plugins"
                     ? buildPluginMenuEntries()
                     : buildThemeMenuEntries();
 
@@ -194,9 +195,13 @@ export default definePlugin({
                         {children}
                     </Menu.MenuItem>
                 );
-            } else if (key.endsWith("_section") && props.label) {
+            } else if (key === "user_section" || (key?.endsWith("_section") && props.label)) {
+                const label = key === "user_section"
+                    ? getIntlMessage("USER_SETTINGS")
+                    : props.label;
+
                 items.push(
-                    <Menu.MenuItem key={key} label={props.label} id={props.label}>
+                    <Menu.MenuItem key={key} label={label} id={label}>
                         {this.transformSettingsEntries(props.children)}
                     </Menu.MenuItem>
                 );

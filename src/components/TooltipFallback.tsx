@@ -1,10 +1,10 @@
 /*
- * Adacord, a Discord client mod
+ * Vencord, a Discord client mod
  * Copyright (c) 2025 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import { Tooltip } from "@adacord/discord-types";
+import { Tooltip } from "@vencord/discord-types";
 
 const NOOP = () => { };
 

@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -60,8 +60,8 @@ export default definePlugin({
             replacement: {
                 // react.jsx)(AccountPanel, { ..., showTaglessAccountPanel: blah })
                 match: /(?<=\i\.jsxs?\)\()(\i),{(?=[^}]*?userTag:\i,occluded:)/,
-                // react.jsx(WrapperComponent, { AdacordOriginal: AccountPanel, ...
-                replace: "$self.PanelWrapper,{AdacordOriginal:$1,"
+                // react.jsx(WrapperComponent, { VencordOriginal: AccountPanel, ...
+                replace: "$self.PanelWrapper,{VencordOriginal:$1,"
             }
         },
         {
@@ -96,7 +96,7 @@ export default definePlugin({
 
     start: () => toggleHoverControls(settings.store.hoverControls),
 
-    PanelWrapper({ AdacordOriginal, ...props }) {
+    PanelWrapper({ VencordOriginal, ...props }) {
         return (
             <>
                 <ErrorBoundary
@@ -110,7 +110,7 @@ export default definePlugin({
                     <Player />
                 </ErrorBoundary>
 
-                <AdacordOriginal {...props} />
+                <VencordOriginal {...props} />
             </>
         );
     }

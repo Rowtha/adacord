@@ -1,5 +1,5 @@
 /*
- * Adacord, a Discord client mod
+ * Vencord, a Discord client mod
  * Copyright (c) 2025 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -10,6 +10,7 @@ import { Card } from "@components/Card";
 import { Flex } from "@components/Flex";
 import { FolderIcon, PaintbrushIcon, PencilIcon, PlusIcon, RestartIcon } from "@components/Icons";
 import { Link } from "@components/Link";
+import { Margins } from "@components/margins";
 import { QuickAction, QuickActionCard } from "@components/settings/QuickAction";
 import { openPluginModal } from "@components/settings/tabs/plugins/PluginModal";
 import { UserThemeHeader } from "@main/themes";
@@ -56,7 +57,7 @@ async function onFileUpload(e: SyntheticEvent<HTMLInputElement>) {
         return new Promise<void>((resolve, reject) => {
             const reader = new FileReader();
             reader.onload = () => {
-                AdacordNative.themes.uploadTheme(name, reader.result as string)
+                VencordNative.themes.uploadTheme(name, reader.result as string)
                     .then(resolve)
                     .catch(reject);
             };
@@ -79,7 +80,7 @@ export function LocalThemesTab() {
     }, []);
 
     async function refreshLocalThemes() {
-        const themes = await AdacordNative.themes.getThemesList();
+        const themes = await VencordNative.themes.getThemesList();
         setUserThemes(themes);
     }
 
@@ -87,12 +88,10 @@ export function LocalThemesTab() {
         <Flex flexDirection="column" gap="1em">
             <Card>
                 <Forms.FormTitle tag="h5">Find Themes:</Forms.FormTitle>
-                <div style={{ marginBottom: ".5em", display: "flex", flexDirection: "column" }}>
-                    <Link style={{ marginRight: ".5em" }} href="https://betterdiscord.app/themes">
-                        BetterDiscord Themes
-                    </Link>
-                    <Link href="https://github.com/search?q=discord+theme">GitHub</Link>
-                </div>
+                <Flex gap="0.4em" flexDirection="column" justifyContent="flex-start" className={Margins.bottom8}>
+                    <span>&ndash; <Link href="https://betterdiscord.app/themes">BetterDiscord theme list</Link></span>
+                    <span>&ndash; <Link href="https://github.com/search?q=discord+theme">GitHub</Link></span>
+                </Flex>
                 <Forms.FormText>If using the BD site, click on "Download" and place the downloaded .theme.css file into your themes folder.</Forms.FormText>
             </Card>
 
@@ -128,7 +127,7 @@ export function LocalThemesTab() {
                             ) : (
                                 <QuickAction
                                     text="Open Themes Folder"
-                                    action={() => AdacordNative.themes.openFolder()}
+                                    action={() => VencordNative.themes.openFolder()}
                                     Icon={FolderIcon}
                                 />
                             )}
@@ -139,7 +138,7 @@ export function LocalThemesTab() {
                         />
                         <QuickAction
                             text="Edit QuickCSS"
-                            action={() => AdacordNative.quickCss.openEditor()}
+                            action={() => VencordNative.quickCss.openEditor()}
                             Icon={PaintbrushIcon}
                         />
 
@@ -161,7 +160,7 @@ export function LocalThemesTab() {
                             onChange={enabled => onLocalThemeChange(theme.fileName, enabled)}
                             onDelete={async () => {
                                 onLocalThemeChange(theme.fileName, false);
-                                await AdacordNative.themes.deleteTheme(theme.fileName);
+                                await VencordNative.themes.deleteTheme(theme.fileName);
                                 refreshLocalThemes();
                             }}
                             theme={theme}

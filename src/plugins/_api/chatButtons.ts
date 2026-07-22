@@ -1,5 +1,5 @@
 /*
- * Adacord, a Discord client mod
+ * Vencord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -17,7 +17,7 @@ export default definePlugin({
             find: '"sticker")',
             replacement: {
                 match: /0===(\i)\.length(?=.{0,25}?\(0,\i\.jsxs?\)\(.{0,75}?children:\1)/,
-                replace: "(Adacord.Api.ChatButtons._injectButtons($1,arguments[0]),$&)"
+                replace: "(Vencord.Api.ChatButtons._injectButtons($1,arguments[0]),$&)"
             }
         }
     ]

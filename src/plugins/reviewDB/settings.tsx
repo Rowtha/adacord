@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2023 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -63,7 +63,7 @@ export const settings = definePluginSettings({
                 <Button
                     variant="positive"
                     onClick={() => {
-                        AdacordNative.native.openExternal("https://github.com/sponsors/mantikafasi");
+                        VencordNative.native.openExternal("https://github.com/sponsors/mantikafasi");
                     }}
                 >
                     Support ReviewDB development
@@ -75,7 +75,7 @@ export const settings = definePluginSettings({
                     if (token)
                         url += "/api/redirect?token=" + encodeURIComponent(token);
 
-                    AdacordNative.native.openExternal(url);
+                    VencordNative.native.openExternal(url);
                 }}>
                     ReviewDB website
                 </Button>

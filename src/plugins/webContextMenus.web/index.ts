@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -116,7 +116,7 @@ export default definePlugin({
                 // Fix silly Discord calling the non web support copy
                 {
                     match: /\i\.\i\.copy/,
-                    replace: "Adacord.Util.copyToClipboard"
+                    replace: "Vencord.Util.copyToClipboard"
                 }
             ]
         },
@@ -234,7 +234,7 @@ export default definePlugin({
                 },
                 {
                     match: /\i\.\i\.copy(?=\(\i)/,
-                    replace: "Adacord.Util.copyToClipboard"
+                    replace: "Vencord.Util.copyToClipboard"
                 }
             ],
             all: true,

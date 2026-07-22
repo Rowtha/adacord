@@ -1,15 +1,15 @@
 {
-    "name": "adacord",
+    "name": "vencord",
     "private": "true",
-    "version": "1.14.15",
+    "version": "1.14.16",
     "description": "The cutest Discord client mod",
-    "homepage": "https://github.com/Rowtha/better-vencord#readme",
+    "homepage": "https://github.com/Vendicated/Vencord#readme",
     "bugs": {
-        "url": "https://github.com/Rowtha/better-vencord/issues"
+        "url": "https://github.com/Vendicated/Vencord/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Rowtha/better-vencord.git"
+        "url": "git+https://github.com/Vendicated/Vencord.git"
     },
     "license": "GPL-3.0-or-later",
     "author": "Vendicated",
@@ -24,7 +24,7 @@
         "dev": "pnpm watch",
         "watchWeb": "pnpm buildWeb --watch",
         "generatePluginJson": "tsx scripts/generatePluginList.ts",
-        "generateTypes": "tspc --emitDeclarationOnly --declaration --outDir packages/adacord-types --allowJs false",
+        "generateTypes": "tspc --emitDeclarationOnly --declaration --outDir packages/vencord-types --allowJs false",
         "inject": "node scripts/runInstaller.mjs -- --install",
         "uninject": "node scripts/runInstaller.mjs -- --uninstall",
         "lint": "eslint",
@@ -52,7 +52,7 @@
         "@types/react": "19.1.0",
         "@types/react-dom": "19.1.0",
         "@types/yazl": "^3.3.1",
-        "@adacord/discord-types": "link:packages/discord-types",
+        "@vencord/discord-types": "link:packages/discord-types",
         "diff": "^9.0.0",
         "esbuild": "^0.28.1",
         "eslint": "10.6.0",

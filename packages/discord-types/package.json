@@ -1,6 +1,6 @@
 {
-    "name": "@adacord/discord-types",
-    "author": "Adacord Contributors",
+    "name": "@vencord/discord-types",
+    "author": "Vencord Contributors",
     "private": false,
     "description": "Typescript definitions for the webpack modules of the Discord Web app",
     "version": "1.0.1",
@@ -9,7 +9,7 @@
     "type": "module",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Rowtha/better-vencord.git",
+        "url": "git+https://github.com/Vendicated/Vencord.git",
         "directory": "packages/discord-types"
     },
     "dependencies": {

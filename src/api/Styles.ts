@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -31,35 +31,35 @@ export interface Style {
     dom: HTMLStyleElement | null;
 }
 
-export const styleMap = window.AdacordStyles ??= new Map();
+export const styleMap = window.VencordStyles ??= new Map();
 
-export const adacordRootNode = document.createElement("adacord-root");
+export const vencordRootNode = document.createElement("vencord-root");
 /**
- * Houses all Adacord core styles. This includes all imported css files
+ * Houses all Vencord core styles. This includes all imported css files
  */
-export const coreStyleRootNode = document.createElement("adacord-styles");
+export const coreStyleRootNode = document.createElement("vencord-styles");
 /**
  * Houses all plugin specific managed styles
  */
-export const managedStyleRootNode = document.createElement("adacord-managed-styles");
+export const managedStyleRootNode = document.createElement("vencord-managed-styles");
 /**
  * Houses the user's themes and quick css
  */
-export const userStyleRootNode = document.createElement("adacord-user-styles");
+export const userStyleRootNode = document.createElement("vencord-user-styles");
 
-adacordRootNode.style.display = "none";
-adacordRootNode.append(coreStyleRootNode, managedStyleRootNode, userStyleRootNode);
+vencordRootNode.style.display = "none";
+vencordRootNode.append(coreStyleRootNode, managedStyleRootNode, userStyleRootNode);
 
 export function initStyles() {
-    const osValuesNode = createAndAppendStyle("adacord-os-theme-values", coreStyleRootNode);
-    createAndAppendStyle("adacord-text", coreStyleRootNode).textContent = generateTextCss();
-    const rendererCssNode = createAndAppendStyle("adacord-css-core", coreStyleRootNode);
+    const osValuesNode = createAndAppendStyle("vencord-os-theme-values", coreStyleRootNode);
+    createAndAppendStyle("vencord-text", coreStyleRootNode).textContent = generateTextCss();
+    const rendererCssNode = createAndAppendStyle("vencord-css-core", coreStyleRootNode);
     const vesktopCssNode = IS_VESKTOP ? createAndAppendStyle("vesktop-css-core", coreStyleRootNode) : null;
-    createAndAppendStyle("adacord-margins", coreStyleRootNode).textContent = generateMarginCss();
+    createAndAppendStyle("vencord-margins", coreStyleRootNode).textContent = generateMarginCss();
 
-    AdacordNative.native.getRendererCss().then(css => rendererCssNode.textContent = css);
+    VencordNative.native.getRendererCss().then(css => rendererCssNode.textContent = css);
     if (IS_DEV) {
-        AdacordNative.native.onRendererCssUpdate(newCss => {
+        VencordNative.native.onRendererCssUpdate(newCss => {
             rendererCssNode.textContent = newCss;
         });
     }
@@ -71,7 +71,7 @@ export function initStyles() {
         });
     }
 
-    AdacordNative.themes.getSystemValues().then(values => {
+    VencordNative.themes.getSystemValues().then(values => {
         const variables = Object.entries(values)
             .filter(([, v]) => !!v)
             .map(([k, v]) => `--${k}: ${v};`)
@@ -81,7 +81,7 @@ export function initStyles() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.documentElement.append(adacordRootNode);
+    document.documentElement.append(vencordRootNode);
 }, { once: true });
 
 export function requireStyle(name: string) {
@@ -108,7 +108,7 @@ export function enableStyle(name: string) {
 
     if (!style.dom) {
         style.dom = document.createElement("style");
-        style.dom.dataset.adacordName = style.name;
+        style.dom.dataset.vencordName = style.name;
     }
     compileStyle(style);
 

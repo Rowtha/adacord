@@ -6,7 +6,7 @@ on:
 
 jobs:
     Publish:
-        if: github.repository == 'Rowtha/better-vencord'
+        if: github.repository == 'Vendicated/Vencord'
         runs-on: ubuntu-latest
 
         steps:

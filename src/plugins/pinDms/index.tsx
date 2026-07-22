@@ -1,17 +1,17 @@
 /*
- * Adacord, a Discord client mod
+ * Vencord, a Discord client mod
  * Copyright (c) 2024 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 import "./styles.css";
 
-import { Channel } from "@adacord/discord-types";
 import { definePluginSettings } from "@api/Settings";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Devs } from "@utils/constants";
 import { classes } from "@utils/misc";
 import definePlugin, { OptionType, StartAt } from "@utils/types";
+import { Channel } from "@vencord/discord-types";
 import { findCssClassesLazy, findStoreLazy } from "@webpack";
 import { Clickable, ContextMenuApi, FluxDispatcher, Menu, React } from "@webpack/common";
 
@@ -212,7 +212,7 @@ export default definePlugin({
         const sectionHeaderSizePx = sections.length * 40;
         // (header heights + DM heights + DEFAULT_CHUNK_SIZE) * 1.5
         // we multiply everything by 1.5 so it only gets unmounted after the entire list is off screen
-        return (sectionHeaderSizePx + sections.reduce((acc, v) => acc += v + 44, 0) + DEFAULT_CHUNK_SIZE) * 1.5;
+        return (sectionHeaderSizePx + sections.reduce((acc, v) => acc += v * 44, 0) + DEFAULT_CHUNK_SIZE) * 1.5;
     },
 
     isCategoryIndex(sectionIndex: number) {

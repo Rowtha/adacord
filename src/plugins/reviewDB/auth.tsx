@@ -1,5 +1,5 @@
 /*
- * Adacord, a Discord client mod
+ * Vencord, a Discord client mod
  * Copyright (c) 2023 Vendicated and contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -53,7 +53,7 @@ export function authorize(callback?: () => void) {
             callback={async (response: { location: string }) => {
                 try {
                     const url = new URL(response.location);
-                    url.searchParams.append("clientMod", "adacord");
+                    url.searchParams.append("clientMod", "vencord");
                     const res = await fetch(url, {
                         headers: { Accept: "application/json" }
                     });

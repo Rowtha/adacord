@@ -20,7 +20,7 @@ on:
 
 jobs:
     TestPlugins:
-        if: github.repository == 'Rowtha/better-vencord'
+        if: github.repository == 'Vendicated/Vencord'
         runs-on: ubuntu-latest
 
         steps:
@@ -44,7 +44,7 @@ jobs:
               run: |
                   pnpm install --frozen-lockfile
 
-            - name: Build Adacord Reporter Version
+            - name: Build Vencord Reporter Version
               run: pnpm buildReporter
 
             - name: Run Reporter

@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2022 Sofia Lima
  *
  * This program is free software: you can redistribute it and/or modify
@@ -23,7 +23,7 @@ export default definePlugin({
     name: "NoUnblockToJump",
     description: "Allows you to jump to messages of blocked or ignored users and likely spammers without unblocking them",
     tags: ["Utility"],
-    authors: [Devs.dzshn],
+    authors: [Devs.Rini],
     patches: [
         {
             find: "#{intl::UNIGNORE_TO_JUMP_BODY}",

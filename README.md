@@ -1,162 +1,65 @@
-guide made by claudre
-# Adacord
+# Vencord
 
-A custom [Vencord](https://github.com/Vendicated/Vencord) fork with a personal set of plugins bundled in, for anyone who wants the same setup.
+![](https://img.shields.io/github/package-json/v/Vendicated/Vencord?style=for-the-badge&logo=github&logoColor=d3869b&label=&color=1d2021&labelColor=282828)
+[![Codeberg Mirror](https://img.shields.io/static/v1?style=for-the-badge&label=Codeberg%20Mirror&message=codeberg.org/Vee/cord&color=2185D0&logo=data:image/png;base64,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)](https://codeberg.org/Vee/cord)
 
-> This project is a fork of Vencord and is licensed under **GPL-3.0**, the same license Vencord itself uses. Since GPL-3.0 is a copyleft license, this fork stays under GPL-3.0 too.
+The cutest Discord client mod
 
-## Table of Contents
+![](https://github.com/user-attachments/assets/3fac98c0-c411-4d2a-97a3-13b7da8687a2)
 
-- [Linux Installation](#linux-installation)
-- [Windows Installation](#windows-installation)
+## Features
 
----
+-   Easy to install
+-   [100+ built in plugins](https://vencord.dev/plugins)
+-   Fairly lightweight despite the many inbuilt plugins
+-   Excellent Browser Support: Run Vencord in your Browser via extension or UserScript
+-   Works on any Discord branch: Stable, Canary or PTB all work
+-   Custom CSS and Themes: Inbuilt css editor with support to import any css files (including BetterDiscord themes)
+-   Privacy friendly: blocks Discord analytics & crash reporting out of the box and has no telemetry
+-   Maintained very actively, broken plugins are usually fixed within 12 hours
+-   Settings sync: Keep your plugins and their settings synchronised between devices / apps (optional)
 
-## Linux Installation
 
-> **Note:** This method works reliably for Linux users on a similar CPU architecture (x86_64/AMD64). It does not work across operating systems — see [Windows Installation](#windows-installation) if that's you. This is because Adacord's build system uses `esbuild`, which ships a compiled, OS-specific binary rather than portable code, so a pre-built folder from Linux won't run correctly on Windows.
+## Installing / Uninstalling
 
-### What you need installed first
+Visit https://vencord.dev/download
 
-Even with a pre-built folder, the inject step runs through `pnpm`, so you'll need:
+## Join our Support/Community Server
 
-- Node.js
-- pnpm
+https://discord.gg/D9uwnFnqmd
 
-On Debian/Ubuntu/Linux Mint:
+## Sponsors
 
-```bash
-sudo apt install nodejs npm
-sudo npm install -g pnpm
-```
+|     **Thanks a lot to all Vencord [sponsors](https://github.com/sponsors/Vendicated)!!**     |
+| :------------------------------------------------------------------------------------------: |
+|   [![](https://meow.vendicated.dev/sponsors.png)](https://github.com/sponsors/Vendicated)    |
+| *generated using [github-sponsor-graph](https://github.com/Vendicated/github-sponsor-graph)* |
 
-It's also worth installing `git`, just in case:
 
-```bash
-sudo apt install git
-```
+## Star History
 
-### Steps
+<a href="https://star-history.com/#Vendicated/Vencord&Timeline">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Vendicated/Vencord&type=Timeline&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Vendicated/Vencord&type=Timeline" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Vendicated/Vencord&type=Timeline" />
+  </picture>
+</a>
 
-1. Get the pre-built folder (e.g. `my-adacord.tar.gz`) and extract it:
+## Disclaimer
 
-   ```bash
-   tar -xzf linux-adacord.tar.gz -C ~/Adacord
-   cd ~/Adacord
-   ```
+Discord is trademark of Discord Inc. and solely mentioned for the sake of descriptivity.
+Mention of it does not imply any affiliation with or endorsement by Discord Inc.
 
-2. **Fully close Discord.** Discord's files can't be patched while it's running.
+<details>
+<summary>Using Vencord violates Discord's terms of service</summary>
 
-3. Run:
+Client modifications are against Discord’s Terms of Service.
 
-   ```bash
-   pnpm inject
-   ```
+However, Discord is pretty indifferent about them and there are no known cases of users getting banned for using client mods! So you should generally be fine as long as you don’t use any plugins that implement abusive behaviour. But no worries, all inbuilt plugins are safe to use!
 
-   This launches Adacord's installer and points it at the already-built files. Follow the prompts to select your Discord installation.
+Regardless, if your account is very important to you and it getting disabled would be a disaster for you, you should probably not use any client mods (not exclusive to Vencord), just to be safe
 
-4. Restart Discord. Your plugins should now appear under Adacord's plugin settings.
+Additionally, make sure not to post screenshots with Vencord in a server where you might get banned for it
 
-### Known rough edges
-
-- **CPU architecture matters, not just "being on Linux."** ARM devices (e.g. Raspberry Pi) will likely hit the same kind of failure as Windows, for the same reason (esbuild's native binary).
-- **Very different Linux distros or C libraries** (e.g. Alpine, NixOS) might cause other native-module mismatches beyond esbuild — this hasn't been confirmed one way or the other.
-- **If `pnpm inject` fails outright**, fall back to building from source properly (clone this repo, then `pnpm install`, `pnpm build`, `pnpm inject`) — that reinstalls dependencies fresh for your machine.
-
----
-
-## Windows Installation
-
-> The Linux pre-built-folder shortcut does **not** work on Windows, for the same `esbuild` native-binary reason mentioned above. On Windows, build from source instead — every step here is confirmed against Adacord's own official documentation.
-
-### What you need installed first
-
-Per Adacord's own official docs, you need:
-
-1. **Node.js**
-2. **git**
-3. **pnpm**
-
-Make sure all three are added to your PATH.
-
-**Installing git:**
-
-```powershell
-winget install --id Git.Git -e --source winget
-```
-
-Or download the installer from [git-scm.com/download/win](https://git-scm.com/download/win) — during setup, make sure the option to add Git to your PATH/command line is selected.
-
-**Installing Node.js:**
-
-Download and run the installer from [nodejs.org](https://nodejs.org) — this also gives you `npm`, needed for the next step.
-
-**Installing pnpm** (after Node.js/npm is installed):
-
-```powershell
-npm install -g pnpm
-```
-
-**Verify all three:**
-
-```powershell
-git --version
-node --version
-pnpm --version
-```
-
-Each should print a version number. If any say "not recognized," restart your terminal, or that tool wasn't added to PATH during install.
-
-### Steps
-
-1. Clone this repo:
-
-   ```powershell
-   git clone https://github.com/Rowtha/adacord.git
-   cd adacord
-   ```
-
-2. Install dependencies. Adacord's own docs are explicit: use `pnpm`, not `npm` or `yarn`.
-
-   ```powershell
-   pnpm install
-   ```
-
-3. Build:
-
-   ```powershell
-   pnpm build
-   ```
-
-4. **Fully close Discord.** If you hit a "files in use" error later, close all Discord processes via Task Manager, or run:
-
-   ```powershell
-   taskkill /f /im discord.exe
-   ```
-
-5. Inject:
-
-   ```powershell
-   pnpm inject
-   ```
-
-   This runs Adacord's installer and points it at what you just built. Follow the prompts to select your Discord installation.
-
-6. Fully restart Discord. You should see Adacord's section appear in Discord's settings, along with the bundled plugins.
-
-### Updating later
-
-```powershell
-git pull
-pnpm build
-```
-
-Then restart Discord.
-
-If `git pull` fails due to local changes (this discards any local edits, so back up anything important first):
-
-```powershell
-git reset --hard
-git pull
-pnpm build
-```
+</details>

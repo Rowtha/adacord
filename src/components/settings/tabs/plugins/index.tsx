@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -92,7 +92,7 @@ function ExcludedPluginsList({ search }: { search: string; }) {
         discordDesktop: "Discord Desktop app",
         vesktop: "Vesktop app",
         web: "Vesktop app and the Web version of Discord",
-        dev: "Developer version of Adacord"
+        dev: "Developer version of Vencord"
     };
 
     return (
@@ -202,7 +202,7 @@ function PluginSettings() {
         );
     };
 
-    const [newPlugins] = useAwaiter(() => DataStore.get("Adacord_existingPlugins").then((cachedPlugins: Record<string, number> | undefined) => {
+    const [newPlugins] = useAwaiter(() => DataStore.get("Vencord_existingPlugins").then((cachedPlugins: Record<string, number> | undefined) => {
         const now = Date.now() / 1000;
         const existingTimestamps: Record<string, number> = {};
         const sortedPluginNames = Object.values(sortedPlugins).map(plugin => plugin.name);
@@ -214,7 +214,7 @@ function PluginSettings() {
                 newPlugins.push(p);
             }
         }
-        DataStore.set("Adacord_existingPlugins", existingTimestamps);
+        DataStore.set("Vencord_existingPlugins", existingTimestamps);
 
         return lodash.isEqual(newPlugins, sortedPluginNames) ? [] : newPlugins;
     }));
@@ -233,7 +233,7 @@ function PluginSettings() {
 
         if (isRequired) {
             const tooltipText = p.required || !depMap[p.name]
-                ? "This plugin is required for Adacord to function."
+                ? "This plugin is required for Vencord to function."
                 : makeDependencyList(depMap[p.name]?.filter(d => settings.plugins[d].enabled));
 
             requiredPlugins.push(

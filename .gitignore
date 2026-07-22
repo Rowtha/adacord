@@ -2,7 +2,7 @@ dist
 node_modules
 
 *.exe
-adacord_installer
+vencord_installer
 
 .idea
 .DS_Store

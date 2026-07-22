@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,9 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-export const REACT_GLOBAL = "Adacord.Webpack.Common.React";
+export const REACT_GLOBAL = "Vencord.Webpack.Common.React";
 export const VENBOT_USER_ID = "1017176847865352332";
-export const ADACORD_GUILD_ID = "1015060230222131221";
+export const VENCORD_GUILD_ID = "1015060230222131221";
 export const DONOR_ROLE_ID = "1042507929485586532";
 export const CONTRIB_ROLE_ID = "1026534353167208489";
 export const REGULAR_ROLE_ID = "1026504932959977532";
@@ -171,10 +171,6 @@ export const Devs = /* #__PURE__*/ Object.freeze({
     kemo: {
         name: "kemo",
         id: 715746190813298788n
-    },
-    dzshn: {
-        name: "dzshn",
-        id: 310449948011528192n
     },
     Ducko: {
         name: "Ducko",
@@ -354,8 +350,8 @@ export const Devs = /* #__PURE__*/ Object.freeze({
         id: 354191516979429376n
     },
     Rini: {
-        name: "Rini",
-        id: 1079479184478441643n
+        name: "rini",
+        id: 0n
     },
     castdrian: {
         name: "castdrian",
@@ -495,7 +491,7 @@ export const Devs = /* #__PURE__*/ Object.freeze({
     },
     Byeoon: {
         name: "byeoon",
-        id: 1167275288036655133n
+        id: 495683688474869781n
     },
     Kaitlyn: {
         name: "kaitlyn",
@@ -646,6 +642,14 @@ export const Devs = /* #__PURE__*/ Object.freeze({
         name: "NightmareSan",
         id: 304239816466235392n
     },
+    angelcube: {
+        name: "angelcube",
+        id: 958505257288208446n
+    },
+    Lunascape: {
+        name: "Lunascape",
+        id: 383365021415243776n
+    }
 } satisfies Record<string, Dev>);
 
 // iife so #__PURE__ works correctly

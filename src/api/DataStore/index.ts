@@ -49,7 +49,7 @@ let defaultGetStoreFunc: UseStore | undefined;
 
 function defaultGetStore() {
     if (!defaultGetStoreFunc) {
-        defaultGetStoreFunc = createStore(!IS_REPORTER ? "AdacordData" : "AdacordDataReporter", "AdacordStore");
+        defaultGetStoreFunc = createStore(!IS_REPORTER ? "VencordData" : "VencordDataReporter", "VencordStore");
     }
     return defaultGetStoreFunc;
 }

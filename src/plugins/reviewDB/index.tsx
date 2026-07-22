@@ -1,5 +1,5 @@
 /*
- * Adacord, a modification for Discord's desktop app
+ * Vencord, a modification for Discord's desktop app
  * Copyright (c) 2022 Vendicated and contributors
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,6 @@
 
 import "./style.css";
 
-import { Guild, User } from "@adacord/discord-types";
 import { NavContextMenuPatchCallback } from "@api/ContextMenu";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { OpenExternalIcon } from "@components/Icons";
@@ -28,6 +27,7 @@ import { Devs } from "@utils/constants";
 import { classes } from "@utils/misc";
 import { useAwaiter } from "@utils/react";
 import definePlugin from "@utils/types";
+import { Guild, User } from "@vencord/discord-types";
 import { findCssClassesLazy } from "@webpack";
 import { Clickable, ConfirmModal, IconUtils, Menu, openModal, Parser } from "@webpack/common";
 
@@ -87,7 +87,7 @@ export default definePlugin({
             // DM profile sidebar
             find: ".SIDEBAR,disableToolbar:",
             replacement: {
-                match: /user:(\i),widgets:.{0,100}?\}\),(?=.{0,200}?#{intl::USER_PROFILE_WISHLIST})/,
+                match: /user:(\i),widgets:.{0,100}?\}\),(?=.{0,100}unownedWishlistItems:\i,wishlistId:\i)/,
                 replace: "$&$self.renderProfileComponent({user:$1,isSideBar:true}),"
             }
         },
@@ -133,7 +133,7 @@ export default definePlugin({
                         cancelText: "Appeal",
                         confirmText: "Ok",
                         onCancel: async () =>
-                            AdacordNative.native.openExternal(
+                            VencordNative.native.openExternal(
                                 "https://reviewdb.mantikafasi.dev/api/redirect?"
                                 + new URLSearchParams({
                                     token: Auth.token!,
