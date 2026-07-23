@@ -18,6 +18,7 @@ A custom [Vencord](https://github.com/Vendicated/Vencord) fork with a personal s
 > **Note:** This method works reliably for Linux users on a similar CPU architecture (x86_64/AMD64). It does not work across operating systems — see [Windows Installation](#windows-installation) if that's you. This is because Adacord's build system uses `esbuild`, which ships a compiled, OS-specific binary rather than portable code, so a pre-built folder from Linux won't run correctly on Windows.
 
 ### What you need installed first
+(btw if u go into releases you will see a linux thing, u have to give it permisssion to execute, its the GUI installer
 
 Even with a pre-built folder, the inject step runs through `pnpm`, so you'll need:
 
@@ -70,7 +71,7 @@ sudo apt install git
 
 > The Linux pre-built-folder shortcut does **not** work on Windows, for the same `esbuild` native-binary reason mentioned above. On Windows, build from source instead — every step here is confirmed against Adacord's own official documentation.
 >
-> also theres now a windows .exe to auto do this so.... yeah...... not signed yet tho
+> also theres now a windows .exe to auto do this so.... yeah...... not signed yet tho (we will be signed!)
 
 ### What you need installed first
 
